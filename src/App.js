@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Layout from 'components/Layout/index'
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Layout>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus et sed fugit tempora inventore dignissimos fugiat iste nostrum, odit fuga itaque esse? Ex dolor esse necessitatibus, omnis soluta enim debitis!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus et sed fugit tempora inventore dignissimos fugiat iste nostrum, odit fuga itaque esse? Ex dolor esse necessitatibus, omnis soluta enim debitis!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus et sed fugit tempora inventore dignissimos fugiat iste nostrum, odit fuga itaque esse? Ex dolor esse necessitatibus, omnis soluta enim debitis!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus et sed fugit tempora inventore dignissimos fugiat iste nostrum, odit fuga itaque esse? Ex dolor esse necessitatibus, omnis soluta enim debitis!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus et sed fugit tempora inventore dignissimos fugiat iste nostrum, odit fuga itaque esse? Ex dolor esse necessitatibus, omnis soluta enim debitis!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus et sed fugit tempora inventore dignissimos fugiat iste nostrum, odit fuga itaque esse? Ex dolor esse necessitatibus, omnis soluta enim debitis!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus et sed fugit tempora inventore dignissimos fugiat iste nostrum, odit fuga itaque esse? Ex dolor esse necessitatibus, omnis soluta enim debitis!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus et sed fugit tempora inventore dignissimos fugiat iste nostrum, odit fuga itaque esse? Ex dolor esse necessitatibus, omnis soluta enim debitis!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus et sed fugit tempora inventore dignissimos fugiat iste nostrum, odit fuga itaque esse? Ex dolor esse necessitatibus, omnis soluta enim debitis!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus et sed fugit tempora inventore dignissimos fugiat iste nostrum, odit fuga itaque esse? Ex dolor esse necessitatibus, omnis soluta enim debitis!
+
+        </Layout>
     </div>
   );
 }

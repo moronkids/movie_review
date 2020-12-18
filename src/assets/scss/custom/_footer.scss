@@ -1,0 +1,62 @@
+.footer {
+  min-height: 220px;
+  width: 100%;
+  bottom: 0;
+  background-color: #000000;
+}
+.text-download {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  //   line-height: 42px;
+
+  color: #ffffff;
+}
+
+.text-section2 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 20px;
+  color: #ffffff;
+}
+.text-section1 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 25px;
+  color: #ffffff;
+}
+.icon-fb {
+  background-size: 40px;
+  background-position: center;
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  background-image: url(../../images/facebook.svg);
+}
+.icon-pinterest {
+  background-size: 40px;
+  background-position: center;
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  background-image: url(../../images/pinterest.svg);
+}
+.icon-instagram {
+  background-size: 40px;
+  background-position: center;
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  background-image: url(../../images/instagram.svg);
+}
