@@ -6,7 +6,7 @@ import IconFB from "assets/images/icon_facebook.png";
 const footer = () => {
   return (
     <div className="pt-2 footer pb-0 ">
-      <div className="container border-bottom border-white pr-0 pb-4">
+      <div className="container border-bottom border-white pr-0 pb-md-4">
         <Icon center={false} textColor="white" position="absolute"></Icon>
         <div class="row text-white mx-auto mt-2 mb-2">
           <div class="col-sm md-col-sm pl-0 pt-5 ml-2 text-section1 mr-md-5 mb-3 md-mb-0">
@@ -18,11 +18,11 @@ const footer = () => {
             </span>
           </div>
           <div class="col-6 col-sm-2 pl-0 ml-0 ml-md-2 text-section2 mt-1">
-            <ul className="pl-1 pl-md-4">Tentang Kami</ul>
-            <ul className="pl-1 pl-md-4">Blog</ul>
-            <ul className="pl-1 pl-md-4">Layanan</ul>
-            <ul className="pl-1 pl-md-4">Kurir</ul>
-            <ul className="pl-1 pl-md-4">Pusat Media</ul>
+            <ul className="pl-2 pl-md-4">Tentang Kami</ul>
+            <ul className="pl-2 pl-md-4">Blog</ul>
+            <ul className="pl-2 pl-md-4">Layanan</ul>
+            <ul className="pl-2 pl-md-4">Kurir</ul>
+            <ul className="pl-2 pl-md-4">Pusat Media</ul>
           </div>
           <div class="col-6 col-sm-3 pl-0 mb-4 md-mb-0">
             <div className="md-float-right">
