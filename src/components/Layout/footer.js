@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Icon from "components/Layout/icon";
 import AppleStore from "assets/images/apple_store.svg";
 import PlayStore from "assets/images/google_play.svg";
 import IconFB from "assets/images/icon_facebook.png";
-const footer = () => {
+import { darkMode } from "provider/darkmode";
+const Footer = () => {
+  const { theme, toggleTheme } = useContext(darkMode);
   return (
     <div className="pt-2 footer pb-0 ">
       <div className="container border-bottom border-white pr-0 pb-md-4">
@@ -28,11 +30,11 @@ const footer = () => {
             <div className="md-float-right">
               {" "}
               <div class="text-download ml-2">Download</div>
-              <div className="d-sm-none d-md-flex col-sm-12 pl-0">
+              <div className="d-sm-none d-md-block d-xl-flex col-sm-12 pl-0">
                 <div className="sm-col-sm-12 pl-0">
                   <img src={PlayStore} width="auto" height="50" />
                 </div>
-                <div className="sm-col-sm-12 pl-0">
+                <div className="sm-col-sm-12 pl-1">
                   <img
                     src={AppleStore}
                     width="auto"
@@ -51,11 +53,24 @@ const footer = () => {
           </div>
         </div>
       </div>
-      <div className="mx-auto text-center text-white p-3    ">
-        Made with LOVE Frontend Team B
+      <div className="d-flex text-center text-white p-3    ">
+        <div className="mx-auto">
+          <span className="vertical-align-middle my-auto">
+            <b>Made with LOVE Frontend Team B</b>
+          </span>
+          <br />
+          <span
+            className={
+              theme === "light"
+                ? "d-block mx-auto d-md-none darkicon"
+                : "d-block mx-auto d-md-none lighticon"
+            }
+            onClick={() => toggleTheme()}
+          ></span>
+        </div>
       </div>
     </div>
   );
 };
 
-export default footer;
+export default Footer;

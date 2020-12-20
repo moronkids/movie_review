@@ -1,3 +1,10 @@
 .body {
-  height: calc(100vh - 293px);
+  min-height: calc(100vh - 361px);
+  height: auto;
+}
+@media only screen and (max-width: 573px) {
+  .body {
+    min-height: calc(100vh - 554px);
+    height: auto;
+  }
 }
