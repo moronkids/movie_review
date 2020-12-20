@@ -1,5 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Routes from "routes/index";
 import Layout from "components/Layout/index";
 
 function App() {
@@ -7,41 +9,11 @@ function App() {
 
   return (
     <div className="App">
-
-        <Layout>
-
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus et
-          sed fugit tempora inventore dignissimos fugiat iste nostrum, odit fuga
-          itaque esse? Ex dolor esse necessitatibus, omnis soluta enim debitis!
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus et
-          sed fugit tempora inventore dignissimos fugiat iste nostrum, odit fuga
-          itaque esse? Ex dolor esse necessitatibus, omnis soluta enim debitis!
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus et
-          sed fugit tempora inventore dignissimos fugiat iste nostrum, odit fuga
-          itaque esse? Ex dolor esse necessitatibus, omnis soluta enim debitis!
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus et
-          sed fugit tempora inventore dignissimos fugiat iste nostrum, odit fuga
-          itaque esse? Ex dolor esse necessitatibus, omnis soluta enim debitis!
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus et
-          sed fugit tempora inventore dignissimos fugiat iste nostrum, odit fuga
-          itaque esse? Ex dolor esse necessitatibus, omnis soluta enim debitis!
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus et
-          sed fugit tempora inventore dignissimos fugiat iste nostrum, odit fuga
-          itaque esse? Ex dolor esse necessitatibus, omnis soluta enim debitis!
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus et
-          sed fugit tempora inventore dignissimos fugiat iste nostrum, odit fuga
-          itaque esse? Ex dolor esse necessitatibus, omnis soluta enim debitis!
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus et
-          sed fugit tempora inventore dignissimos fugiat iste nostrum, odit fuga
-          itaque esse? Ex dolor esse necessitatibus, omnis soluta enim debitis!
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus et
-          sed fugit tempora inventore dignissimos fugiat iste nostrum, odit fuga
-          itaque esse? Ex dolor esse necessitatibus, omnis soluta enim debitis!
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus et
-          sed fugit tempora inventore dignissimos fugiat iste nostrum, odit fuga
-          itaque esse? Ex dolor esse necessitatibus, omnis soluta enim debitis!
-        </Layout>
-
+      <Router>
+        <Switch>
+          <Route component={Routes}/>
+        </Switch>
+      </Router>
     </div>
   );
 }
