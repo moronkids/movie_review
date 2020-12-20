@@ -31,7 +31,7 @@ const Index = (props) => {
         </div>
         <Header />
         <Body>
-          <Main></Main>
+          {props.children}
         </Body>
         <Footer />
       </ThemeProvider>
