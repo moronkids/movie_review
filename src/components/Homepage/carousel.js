@@ -12,6 +12,7 @@ const items = [
     src: `${IconCarousel}`,
     // altText: "Slide 1",
     // caption: "Slide 1",
+    id: "1",
     width: "100%",
     height: "auto",
   },
@@ -19,6 +20,7 @@ const items = [
     src: `${IconCarousel}`,
     // altText: "Slide 1",
     // caption: "Slide 1",
+    id: "2",
     width: "100%",
     height: "auto",
   },
@@ -28,6 +30,7 @@ const items = [
     altText: "Slide 1",
     // altText: "Slide 1",
     // caption: "Slide 1",
+    id: "3",
     width: "100%",
     height: "auto",
   },
@@ -52,12 +55,13 @@ const CarouselLayout = (props) => {
     if (animating) return;
     setActiveIndex(newIndex);
   };
-  const slides = items.map((item) => {
+  const slides = items.map((item,i) => {
+    // console.log(item, i)
     return (
       <CarouselItem
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
-        key={item.src}
+        key={item.id}
         className="position-relative"
       >
         <img
@@ -67,10 +71,10 @@ const CarouselLayout = (props) => {
           width={item.width}
           height={item.height}
         />
-        <CarouselCaption
-          captionText={item.caption}
+        {/* <CarouselCaption
+          // captionText={item.caption}
           captionHeader={item.caption}
-        />
+        /> */}
       </CarouselItem>
     );
   });

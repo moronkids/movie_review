@@ -5,11 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import DarkMode from "provider/darkmode"
 ReactDOM.render(
-  <React.StrictMode>
+  <React.Fragment>
+  {/* <React.StrictMode> */}
     <DarkMode>
       <App />
     </DarkMode>
-  </React.StrictMode>,
+  </React.Fragment>,
   document.getElementById("root")
 );
 
