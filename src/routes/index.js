@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 import { Route, Switch, Redirect } from "react-router-dom"; // ini buat routing dari reactjs, must installing first
 import Homepage from "pages/homepage";
+import Detail from "pages/detail_movie/index";
 import Wrapper from "components/Layout/index";
+import "assets/scss/styles.scss";
 const Routesx = () => {
   const AppRoute = ({
     component: Component,
@@ -33,6 +35,27 @@ const Routesx = () => {
           layout={_Guest}
           auth={Guest}
           component={Homepage}
+        />
+        <AppRoute
+          exact
+          path="/overview"
+          layout={_Guest}
+          auth={Guest}
+          component={Detail}
+        />
+        <AppRoute
+          exact
+          path="/characters"
+          layout={_Guest}
+          auth={Guest}
+          component={Detail}
+        />
+        <AppRoute
+          exact
+          path="/review"
+          layout={_Guest}
+          auth={Guest}
+          component={Detail}
         />
       </Switch>
     </section>

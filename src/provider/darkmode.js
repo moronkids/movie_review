@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 export const darkMode = React.createContext();
 const Darkmode = (props) => {
   const [theme, setTheme] = useState(localStorage.getItem("darkmode"));
+  const [path, setPath] = useState("overview");
   const toggleTheme = () => {
     if (theme === "light") {
       localStorage.setItem("darkmode", theme === "dark" ? "light" : "dark");
@@ -14,7 +15,9 @@ const Darkmode = (props) => {
   return <darkMode.Provider value={{
       toggleTheme,
       theme,
-      setTheme
+      setTheme,
+      path,
+      setPath
   }}>
       {props.children}
   </darkMode.Provider>;
