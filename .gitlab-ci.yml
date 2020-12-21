@@ -16,14 +16,14 @@ setup:
   script:
     - npm ci
   only:
-    - master
+    - Development
 
 test:
   stage: test
   script:
     - npm run test:unit
   only:
-    - master
+    - Development
 
 build:
   stage: build
@@ -33,7 +33,7 @@ build:
     paths:
       - dist
   only:
-    - master
+    - Development
 
 deploy:
   stage: deploy
@@ -43,4 +43,4 @@ deploy:
   dependencies:
     - build
   only:
-    - master
+    - Development
