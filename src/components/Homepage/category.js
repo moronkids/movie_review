@@ -22,7 +22,7 @@ const Category = (props) => {
     }
     console.log("masuk", e, location);
   };
-  const classn = "list-category";
+  const classn = "list-category my-auto";
   let cat;
   if (props.detect === "homepage") {
     cat = props.valueProps.map((val, i) => {
