@@ -15,7 +15,7 @@ build:
     - npm run build
   artifacts:
     paths:
-      - dist
+      - build
   only:
     - Development
 
