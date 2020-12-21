@@ -159,8 +159,9 @@
   li {
     box-sizing: content-box;
     flex: 0 1 auto;
-    width: $carousel-indicator-width;
-    height: $carousel-indicator-height;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
     margin-right: $carousel-indicator-spacer;
     margin-left: $carousel-indicator-spacer;
     text-indent: -999px;
@@ -195,3 +196,4 @@
   color: $carousel-caption-color;
   text-align: center;
 }
+
