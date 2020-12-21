@@ -2,7 +2,9 @@ import React from 'react';
 import Carousel from "components/Homepage/carousel";
 import Category from "components/Homepage/category";
 import Main from 'components/Homepage/category'
+import { Homepage } from "data_dummy/homepage";
 const index = (props) => {
+  console.log(Homepage, "ini data");
     const valueCategory = [
       {
         name: "Anime",
@@ -40,6 +42,14 @@ const index = (props) => {
         <Carousel />
         <Category  valueProps={valueCategory} detect={"homepage"}/>
         {props.children}
+        {Homepage.map(val => {
+          return (
+            <div>
+              <p>val.title</p>
+              <img src={val.image} />
+            </div>
+          );
+        })}
       </div>
     );
 };
