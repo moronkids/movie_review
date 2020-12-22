@@ -4,7 +4,9 @@ import Category from "components/Homepage/category";
 import Main from 'components/Homepage/category'
 import Data from "data_card/"
 import Homepage from 'pages/homepage';
+import { Homepage } from "data_dummy/homepage";
 const index = (props) => {
+  console.log(Homepage, "ini data");
     const valueCategory = [
       {
         name: "Anime",
@@ -43,7 +45,12 @@ const index = (props) => {
         <Category  valueProps={valueCategory} detect={"homepage"}/>
         {props.children}
         {Homepage.map(val => {
-          return <p>val.title</p>
+          return (
+            <div>
+              <p>val.title</p>
+              <img src={val.image} />
+            </div>
+          );
         })}
       </div>
     );

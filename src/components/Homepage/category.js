@@ -22,7 +22,7 @@ const Category = (props) => {
     }
     console.log("masuk", e, location);
   };
-  const classn = "list-category";
+  const classn = "list-category my-auto";
   let cat;
   if (props.detect === "homepage") {
     cat = props.valueProps.map((val, i) => {
@@ -47,7 +47,7 @@ const Category = (props) => {
           onClick={(e) => addActive(i)}
           className={mix + (location === val.page ? " active" : "")}
         >
-          {val.name}
+          <span className="align-middle">{val.name}</span>
         </span>
       );
     });
@@ -57,7 +57,7 @@ const Category = (props) => {
       <div className="mt-3">
         <span className="text-category-main">Browse by Category</span>
       </div>
-      <div className="">
+      <div className="d-flex flex-wrap">
         {cat}
         {/* <span
             id="1"

@@ -1,19 +1,20 @@
 import React from 'react';
-import {
-    Card, CardImg, CardText, CardBody, CardTitle
-} from 'reactstrap';
+import {Homepage} from "data_dummy/homepage"
 
 
-const Card = (props) => {
+const Card = () => {
     return (
-        <div className="Card">
-                <CardImg top width="100% src=" alt="Card image tap"/>
-                <CardBody>
-                    <CardTitle tag="h5" className="mb-2 text-muted">Saint Seiya</CardTitle>
-                    <CardText>Anime</CardText>
-                    
-                </CardBody>
-            </Card>
+        <div className="d-flex flex-wrap">
+            {Homepage(Map((val) => {
+                return (
+                    <div className="mx-auto">
+                        <img className="m-2" src={val.image} width="150"/>
+                        <p>{val.title}</p>
+                        <p>{val.category}</p>
+                    </div>
+                );
+            }))} 
+        
         </div>
     );
 };

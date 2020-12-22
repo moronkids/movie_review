@@ -1,0 +1,232 @@
+.transparency-dark {
+  width: 100%;
+  // min-height: 200px;
+  height: 100%;
+  max-height: 400px;
+  opacity: 0.8;
+}
+.banner-movie {
+  position: relative;
+  // opacity: 75%;
+}
+
+.review-star {
+  z-index: 100;
+  margin-left: 70px;
+  margin-top: 30px;
+}
+
+.icon-text-banner {
+  font-family: "Roboto", sans-serif;
+  font-size: 34px;
+  font-weight: 900;
+  color: white;
+}
+
+.review-count {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  //   line-height: 0px;
+  color: #f4f4f4;
+}
+
+.desc-banner {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 22px;
+  color: #ffffff;
+  max-width: 500px;
+}
+
+.button-banner-red {
+  left: 165px;
+  top: 648px;
+  background: #fe024e;
+  border-radius: 15px;
+  padding: 10px 25px;
+}
+.button-banner-white {
+  border: 2px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 15px;
+  padding: 10px 25px;
+}
+.button-banner-text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 20px;
+  //   line-height: 56px;
+
+  color: #ffffff;
+}
+
+@media only screen and (max-width: 768px) {
+  .review-star {
+    z-index: 100;
+    margin-left: 25px;
+    margin-top: 10px;
+    max-width: 500px;
+  }
+  .icon-text-banner {
+    font-size: 30px;
+  }
+  .button-banner-white {
+    border: 2px solid #ffffff;
+    box-sizing: border-box;
+    border-radius: 15px;
+  }
+  .button-banner-red {
+    left: 165px;
+    top: 648px;
+    background: #fe024e;
+    border-radius: 15px;
+  }
+  .button-banner-text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 20px;
+    //   line-height: 56px;
+
+    color: #ffffff;
+  }
+}
+@media only screen and (max-width: 573px) {
+  .review-star {
+    z-index: 100;
+    margin-left: 40px;
+    margin-top: 25px;
+    max-width: 400px;
+  }
+  .icon-text-banner {
+    font-size: 25px;
+  }
+  .button-banner-white {
+    border: 2px solid #ffffff;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 7px 20px;
+  }
+  .button-banner-red {
+    left: 165px;
+    top: 648px;
+    background: #fe024e;
+    border-radius: 10px;
+    padding: 7px 20px;
+  }
+  .button-banner-text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 15px;
+    //   line-height: 56px;
+
+    color: #ffffff;
+  }
+}
+@media only screen and (max-width: 414px) {
+  .review-star {
+    z-index: 100;
+    margin-left: 20px;
+    margin-top: 11px;
+    max-width: 400px;
+  }
+  .icon-text-banner {
+    font-size: 25px;
+  }
+  .button-banner-white {
+    border: 2px solid #ffffff;
+    box-sizing: border-box;
+    border-radius: 15px;
+    padding: 10px 15px;
+  }
+  .button-banner-red {
+    left: 165px;
+    top: 648px;
+    background: #fe024e;
+    border-radius: 15px;
+    padding: 12px 30px;
+  }
+  .button-banner-text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 16px;
+    color: #ffffff;
+  }
+}
+@media only screen and (max-width: 379px) {
+  .review-star {
+    z-index: 100;
+    margin-left: 20px;
+    margin-top: 8px;
+    max-width: 300px;
+  }
+  .icon-text-banner {
+    font-size: 25px;
+  }
+  .button-banner-white {
+    border: 2px solid #ffffff;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 5px 10px;
+  }
+  .button-banner-red {
+    left: 165px;
+    top: 648px;
+    background: #fe024e;
+    border-radius: 5px;
+    padding: 5px 10px;
+  }
+  .button-banner-text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 15px;
+    color: #ffffff;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .desc-banner {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: #ffffff;
+  }
+  .review-star {
+    z-index: 100;
+    margin-left: 9px;
+    margin-top: 8px;
+    max-width: 300px;
+  }
+  .icon-text-banner {
+    font-size: 25px;
+  }
+  .button-banner-white {
+    border: 2px solid #ffffff;
+    box-sizing: border-box;
+    border-radius: 15px;
+    padding: 10px 15px;
+  }
+  .button-banner-red {
+    left: 165px;
+    top: 648px;
+    background: #fe024e;
+    border-radius: 15px;
+    padding: 10px 15px;
+  }
+  .button-banner-text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 13px;
+    color: #ffffff;
+  }
+}
