@@ -57,7 +57,7 @@ const Category = (props) => {
       <div className="mt-3">
         <span className="text-category-main">Browse by Category</span>
       </div>
-      <div className="d-flex flex-wrap">
+      <div className="d-flex flex-wrap mb-3">
         {cat}
       </div>
     </div>
