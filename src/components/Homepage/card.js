@@ -3,12 +3,12 @@ import {Homepage} from "data_dummy/homepage"
 const Card = () => {
     console.log(Homepage)
     return (
-      <div className="d-flex flex-wrap">
+      <div className="d-flex flex-wrap mx-auto">
         {Homepage.map((val) => { //map, foreach, while, do while, for
           return (
             <>
-              <div className="col-auto mx-auto">
-                <img className="m-2 mx-auto" src={val.image} width="150" />
+              <div className="col-auto mx-auto m-md-0">
+                <img className="mx-auto" src={val.image} width="152" />
                 <p>{val.title}</p>
                 <p>{val.category}</p>
               </div>

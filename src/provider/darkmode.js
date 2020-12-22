@@ -6,15 +6,19 @@ const Darkmode = (props) => {
   const [modal, setModal] = useState(false);
   const [modalSignUp, setModalSignUp] = useState(false);
 
-  const toggleModal = () => setModal(!modal);
+  const toggleModal = () => {
+    toggleAll()
+    setModal(!modal)
+    // setModalSignUp(!modalSignUp);
+  };
   const toggleModalSignUp = () => {
-    setModalSignUp(!modalSignUp);
-    setModal(!modal);
-  }
+    toggleAll()
+    setModalSignUp(!modalSignUp)
+  };
   const toggleAll = () => {
     setModalSignUp(false);
     setModal(false);
-  }
+  };
 
   const closeBtn = (
     <button className="close" onClick={toggleAll}>
