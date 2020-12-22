@@ -4,11 +4,20 @@ const Darkmode = (props) => {
   const [theme, setTheme] = useState(localStorage.getItem("darkmode"));
   const [path, setPath] = useState("overview");
   const [modal, setModal] = useState(false);
+  const [modalSignUp, setModalSignUp] = useState(false);
 
   const toggleModal = () => setModal(!modal);
+  const toggleModalSignUp = () => {
+    setModalSignUp(!modalSignUp);
+    setModal(!modal);
+  }
+  const toggleAll = () => {
+    setModalSignUp(false);
+    setModal(false);
+  }
 
   const closeBtn = (
-    <button className="close" onClick={toggleModal}>
+    <button className="close" onClick={toggleAll}>
       &times;
     </button>
   );
@@ -32,7 +41,10 @@ const Darkmode = (props) => {
         modal,
         setModal,
         toggleModal,
-        closeBtn
+        closeBtn,
+        modalSignUp,
+        setModalSignUp,
+        toggleModalSignUp,
       }}
     >
       {props.children}

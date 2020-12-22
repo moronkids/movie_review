@@ -59,34 +59,6 @@ const Category = (props) => {
       </div>
       <div className="d-flex flex-wrap">
         {cat}
-        {/* <span
-            id="1"
-            onClick={(e) => addActive("1")}
-            className={classn + (toggle === "1" ? " active" : "")}
-          >
-            all
-          </span>
-          <span
-            id="2"
-            onClick={(e) => addActive("2")}
-            className={classn + (toggle === "2" ? " active" : "")}
-          >
-            sample
-          </span>
-          <span
-            id="3"
-            onClick={(e) => addActive("3")}
-            className={classn + (toggle === "3" ? " active" : "")}
-          >
-            sample
-          </span>
-          <span
-            id="4"
-            onClick={(e) => addActive("4")}
-            className={classn + (toggle === "4" ? " active" : "")}
-          >
-            sample
-          </span> */}
       </div>
     </div>
   );

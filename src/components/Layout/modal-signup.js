@@ -16,6 +16,7 @@ const ModalExample = (props) => {
     modalSignUp,
     toggleModalSignUp,
     setModalSignUp,
+    toggleAll,
   } = useContext(darkMode);
   //   const { buttonLabel, className } = props;
 
@@ -34,11 +35,12 @@ const ModalExample = (props) => {
       {/* <Button color="danger" onClick={toggle}>
         {buttonLabel}
       </Button> */}
-      <Modal isOpen={modal} toggle={toggleModal} className={className}>
-        <ModalHeader toggle={toggleModal} close={closeBtn}>
+      <Modal isOpen={modalSignUp} toggle={toggleAll} className={className}>
+        <ModalHeader toggle={toggleModalSignUp} close={closeBtn}>
           <Icon center={true} textColor="blue" />
         </ModalHeader>
         <ModalBody>
+
           <div class="form__group field">
             <input
               type="input"
@@ -68,7 +70,7 @@ const ModalExample = (props) => {
         </ModalBody>
         <ModalFooter>
           <div className="d-flex button-modal w-100 mx-auto">
-            <span className="mx-auto">Sign in</span>
+            <span className="mx-auto">Sign Up</span>
           </div>
           {/* <Button color="primary" onClick={toggleModal}>
             Do Something
@@ -77,14 +79,6 @@ const ModalExample = (props) => {
             Cancel
           </Button> */}
         </ModalFooter>
-        <div className="d-flex">
-          <div className="mx-auto modal-validation-access m-3">
-            Alredy have an account?{" "}
-            <span className="text-pink" onClick={toggleModalSignUp}>
-              Log In
-            </span>
-          </div>
-        </div>
       </Modal>
     </div>
   );

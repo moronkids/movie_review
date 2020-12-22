@@ -5,8 +5,6 @@ import Routes from "routes/index";
 import Layout from "components/Layout/index";
 
 function App() {
-
-
   return (
     <div className="App">
       <Router>

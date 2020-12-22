@@ -254,7 +254,7 @@
 }
 .modal-footer {
   border: none;
-  padding: 2rem 4rem;
+  padding: 2rem 4rem 0rem;
 }
 .button-modal {
   background: #fe024e;
@@ -338,4 +338,17 @@ $gray: #9b9b9b;
 }
 body {
   font-family: "Roboto", sans-serif;
+}
+
+.modal-validation-access {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  // line-height: 20px;s
+  color: #8c8989;
+}
+
+.text-pink {
+  color: $secondary;
 }
