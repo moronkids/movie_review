@@ -3,19 +3,21 @@ import {Homepage} from "data_dummy/homepage"
 
 
 const Card = () => {
+    console.log(Homepage)
     return (
-        <div className="d-flex flex-wrap">
-            {Homepage(Map((val) => {
-                return (
-                    <div className="mx-auto">
-                        <img className="m-2" src={val.image} width="150"/>
-                        <p>{val.title}</p>
-                        <p>{val.category}</p>
-                    </div>
-                );
-            }))} 
-        
-        </div>
+      <div className="d-flex flex-wrap mx-auto">
+        {Homepage.map((val) => { //map, foreach, while, do while, for
+          return (
+            <>
+              <div className="col-auto mx-auto m-md-0">
+                <img className="mx-auto" src={val.image} width="152" />
+                <p style={{color:"white"},{fontSize:"20px"}}>{val.title}</p>
+                <p style={{marginTop:"-25px"}}>{val.category}</p>
+              </div>
+            </>
+          );
+            })}
+      </div>
     );
 };
 
