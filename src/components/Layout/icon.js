@@ -9,6 +9,7 @@ const icon = (props) => {
   let textProps = ["my-auto pl-2"];
   if(props.textColor === "white") textProps.push("icon-text-white");
   if(props.textColor === "blue") textProps.push("icon-text-blue");
+  if(props.textColor === "black") textProps.push("icon-text-black");
   root = root.join(" ");
   iconProps = iconProps.join(" ");
   textProps = textProps.join(" ");
