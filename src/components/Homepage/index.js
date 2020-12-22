@@ -1,11 +1,10 @@
 import React from 'react';
 import Carousel from "components/Homepage/carousel";
 import Category from "components/Homepage/category";
-import Main from 'components/Homepage/category'
-import Card from "components/Homepage/card"
-import { Homepage } from "data_dummy/homepage";
+import Card from "components/Homepage/card";
+import Page from "components/Homepage/page_nation";
+
 const index = (props) => {
-  console.log(Homepage, "ini data");
     const valueCategory = [
       {
         name: "Anime",
@@ -44,6 +43,7 @@ const index = (props) => {
         <Category  valueProps={valueCategory} detect={"homepage"}/>
         {props.children}
         <Card/>
+        <Page/>
       </div>
     );
 };
