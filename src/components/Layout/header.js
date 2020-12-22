@@ -3,8 +3,12 @@ import Icon from "components/Layout/icon";
 import IconSearch from "assets/images/search.svg";
 import "assets/scss/styles.scss";
 import { darkMode } from "provider/darkmode";
+import ModalSignIn from "components/Layout/modal-signin"
 const Header = (props) => {
-    const { theme, toggleTheme } = useContext(darkMode);
+    const { theme, toggleTheme, modal, setModal, toggleModal } = useContext(
+      darkMode
+    );
+    // const { } = useContext(darkMode);
   return (
     // <div className={"sticky-top container navbar navbar-expand-lg navbar-light mx-auto"+ localStorage.getItem("darkmode") === true ? }>
 
@@ -13,7 +17,7 @@ const Header = (props) => {
             "sticky-top container navbar navbar-expand-lg navbar-light mx-auto mode"
           }
         >
-
+          <ModalSignIn/>
           <Icon center={true} textColor="blue"></Icon>
           <input
             className="d-md-block d-none mx-auto"
@@ -23,7 +27,7 @@ const Header = (props) => {
             <span className="d-md-none d-block pr-2 align-middle my-auto mx-auto align-middle">
               <img width="20" height="auto" src={IconSearch}></img>
             </span>
-            <span className="signin">Sign In</span>
+            <span className="signin" onClick={toggleModal}>Sign In</span>
           </div>
         </div>
   );
