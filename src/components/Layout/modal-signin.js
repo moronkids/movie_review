@@ -36,7 +36,7 @@ const ModalExample = (props) => {
       </Button> */}
       <Modal isOpen={modal} toggle={toggleModal} className={className}>
         <ModalHeader toggle={toggleModal} close={closeBtn}>
-          <Icon center={true} textColor="blue" />
+          <Icon center={true} textColor={localStorage.darkmode === "light" ? "blue" : "blue"} />
         </ModalHeader>
         <ModalBody>
           <div class="form__group field">
@@ -79,9 +79,9 @@ const ModalExample = (props) => {
         </ModalFooter>
         <div className="d-flex">
           <div className="mx-auto modal-validation-access m-3">
-            Alredy have an account?{" "}
+            Doesn't have an account?
             <span className="text-pink" onClick={toggleModalSignUp}>
-              Log In
+              Sign Up
             </span>
           </div>
         </div>

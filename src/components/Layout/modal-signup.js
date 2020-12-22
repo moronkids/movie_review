@@ -35,12 +35,18 @@ const ModalExample = (props) => {
       {/* <Button color="danger" onClick={toggle}>
         {buttonLabel}
       </Button> */}
-      <Modal isOpen={modalSignUp} toggle={toggleAll} className={className}>
+      <Modal
+        isOpen={modalSignUp}
+        toggle={toggleModalSignUp}
+        className={className}
+      >
         <ModalHeader toggle={toggleModalSignUp} close={closeBtn}>
-          <Icon center={true} textColor="blue" />
+          <Icon
+            center={true}
+            textColor={localStorage.darkmode === "light" ? "blue" : "blue"}
+          />
         </ModalHeader>
         <ModalBody>
-
           <div class="form__group field">
             <input
               type="input"
@@ -79,6 +85,14 @@ const ModalExample = (props) => {
             Cancel
           </Button> */}
         </ModalFooter>
+        <div className="d-flex">
+          <div className="mx-auto modal-validation-access m-3">
+            Do you have an account?
+            <span className="text-pink" onClick={toggleModal}>
+              Sign In
+            </span>
+          </div>
+        </div>
       </Modal>
     </div>
   );
