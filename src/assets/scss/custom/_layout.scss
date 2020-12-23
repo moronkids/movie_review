@@ -9,7 +9,9 @@
   position: relative;
   // opacity: 75%;
 }
-
+.cardx {
+  width: 152px;
+}
 .review-star {
   z-index: 100;
   margin-left: 70px;
@@ -65,6 +67,11 @@
   color: #ffffff;
 }
 
+@media only screen and (max-width: 990px) {
+  .cardx {
+    width: 138px;
+  }
+}
 @media only screen and (max-width: 768px) {
   .review-star {
     z-index: 100;
@@ -97,6 +104,9 @@
   }
 }
 @media only screen and (max-width: 573px) {
+  .cardx {
+    width: 152px;
+  }
   .review-star {
     z-index: 100;
     margin-left: 40px;
@@ -161,6 +171,9 @@
   }
 }
 @media only screen and (max-width: 379px) {
+  .cardx {
+    width: 127px;
+  }
   .review-star {
     z-index: 100;
     margin-left: 20px;
@@ -192,6 +205,9 @@
   }
 }
 @media only screen and (max-width: 320px) {
+  .cardx {
+    width: 245px;
+  }
   .desc-banner {
     font-family: Roboto;
     font-style: normal;

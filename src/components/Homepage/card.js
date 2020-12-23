@@ -8,7 +8,7 @@ const Card = () => {
           return (
             <>
               <div className="col-auto mx-auto m-md-0">
-                <img className="mx-auto" src={val.image} width="152" />
+                <img className="cardx" src={val.image} />
                 <p>{val.title}</p>
                 <p>{val.category}</p>
               </div>
