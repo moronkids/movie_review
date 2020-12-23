@@ -12,8 +12,7 @@ export const Homepage = [
         title : "Naruto",
         image : Img,
         category: "Anime"
-    }
-    ,
+    },
     {
         id : 3,
         title : "Naruto",
@@ -34,211 +33,288 @@ export const Homepage = [
     }
     ,
     {
-        id : 3,
+        id : 6,
         title : "Naruto",
         image : Img,
         category: "Anime"
     },
     {
-        id : 4,
+        id : 7,
         title : "Naruto",
         image : Img,
         category: "Anime"
     },
     {
-        id : 5,
+        id : 8,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
+    },
+    {
+        id : 9,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
+    },
+    {
+        id : 10,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
+    },
+    {
+        id : 11,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
+    },
+    {
+        id : 12,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
+    },
+    {
+        id : 13,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
+    },
+    {
+        id : 14,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
+    },
+    {
+        id : 15,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
+    },
+    {
+        id : 16,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
+    },
+    {
+        id : 17,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
+    },
+    {
+        id : 18,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
+    },
+    {
+        id : 19,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
+    },
+    {
+        id : 20,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
+    },
+    {
+        id : 21,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
+    },
+    {
+        id : 22,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
+    },
+    {
+        id : 23,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
+    },
+    {
+        id : 24,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
+    },
+    {
+        id : 25,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
+    },
+    {
+        id : 26,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
+    },
+    {
+        id : 27,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
+    },
+    {
+        id : 28,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
+    },
+    {
+        id : 29,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
+    },
+    {
+        id : 30,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
+    },
+    {
+        id : 31,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
+    },
+    {
+        id : 32,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
+    },
+    {
+        id : 33,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
+    },
+    {
+        id : 34,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
+    },
+    {
+        id : 35,
         title : "Naruto",
         image : Img,
         category: "Anime"
     }
     ,
     {
-        id : 3,
+        id : 36,
         title : "Naruto",
         image : Img,
         category: "Anime"
     },
     {
-        id : 4,
+        id : 37,
         title : "Naruto",
         image : Img,
         category: "Anime"
     },
     {
-        id : 5,
-        title : "Naruto",
-        image : Img,
-        category: "Anime"
-    }
-    ,
-    {
-        id : 3,
+        id : 38,
         title : "Naruto",
         image : Img,
         category: "Anime"
     },
     {
-        id : 4,
+        id : 39,
         title : "Naruto",
         image : Img,
         category: "Anime"
     },
     {
-        id : 5,
-        title : "Naruto",
-        image : Img,
-        category: "Anime"
-    }
-    ,
-    {
-        id : 3,
+        id : 40,
         title : "Naruto",
         image : Img,
         category: "Anime"
     },
     {
-        id : 4,
+        id : 41,
         title : "Naruto",
         image : Img,
         category: "Anime"
     },
     {
-        id : 5,
-        title : "Naruto",
-        image : Img,
-        category: "Anime"
-    }
-    ,
-    {
-        id : 3,
+        id : 42,
         title : "Naruto",
         image : Img,
         category: "Anime"
     },
     {
-        id : 4,
+        id : 43,
         title : "Naruto",
         image : Img,
         category: "Anime"
     },
     {
-        id : 5,
-        title : "Naruto",
-        image : Img,
-        category: "Anime"
-    }
-    ,
-    {
-        id : 3,
+        id : 44,
         title : "Naruto",
         image : Img,
         category: "Anime"
     },
     {
-        id : 4,
+        id : 45,
         title : "Naruto",
         image : Img,
         category: "Anime"
     },
     {
-        id : 5,
-        title : "Naruto",
-        image : Img,
-        category: "Anime"
-    }
-    ,
-    {
-        id : 3,
+        id : 46,
         title : "Naruto",
         image : Img,
         category: "Anime"
     },
     {
-        id : 4,
+        id : 47,
         title : "Naruto",
         image : Img,
         category: "Anime"
     },
     {
-        id : 5,
-        title : "Naruto",
-        image : Img,
-        category: "Anime"
-    }
-    ,
-    {
-        id : 3,
+        id : 48,
         title : "Naruto",
         image : Img,
         category: "Anime"
     },
     {
-        id : 4,
+        id : 49,
         title : "Naruto",
         image : Img,
         category: "Anime"
     },
     {
-        id : 5,
-        title : "Naruto",
-        image : Img,
-        category: "Anime"
-    }
-    ,
-    {
-        id : 3,
+        id : 50,
         title : "Naruto",
         image : Img,
         category: "Anime"
     },
     {
-        id : 4,
+        id : 51,
         title : "Naruto",
         image : Img,
         category: "Anime"
+
     },
     {
-        id : 5,
-        title : "Naruto",
-        image : Img,
-        category: "Anime"
-    }
-    ,
-    {
-        id : 3,
-        title : "Naruto",
-        image : Img,
-        category: "Anime"
-    },
-    {
-        id : 4,
-        title : "Naruto",
-        image : Img,
-        category: "Anime"
-    },
-    {
-        id : 5,
-        title : "Naruto",
-        image : Img,
-        category: "Anime"
-    }
-    ,
-    {
-        id : 3,
-        title : "Naruto",
-        image : Img,
-        category: "Anime"
-    },
-    {
-        id : 4,
-        title : "Naruto",
-        image : Img,
-        category: "Anime"
-    },
-    {
-        id : 5,
+        id : 51,
         title : "Naruto",
         image : Img,
         category: "Anime"
     }
 ]
+
