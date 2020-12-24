@@ -1,4 +1,4 @@
-import defaultAxios from "axios";
+import  defaultAxios  from "axios";
 import React, { useContext, useState, useEffect } from "react";
 // import { firebaseAuth } from "../../Provider/AuthProvider";
 // import { authMethods } from "../../firebase/AuthMethods";
@@ -11,18 +11,33 @@ const axios = defaultAxios.create({
 // Get All Todos
 export const signIn = async (data) => {
   console.log(data, "tes login")
-  try {
+  // try {
     // const todos = await axios.get("todolist.json)
-    const todos = await axios.post("/login", data);
-    // const todos = await axios.post("https://httpbin.org/post", { hello: "world" });
-    console.log(todos, "duar")
-    return todos.data;
-  } catch (err) {
-    // authMethods.signout();
-    // localStorage.setItem("error", err);
-    // console.error(err, "loggin");
-    return console.error(err);
-  }
+    let datax ={};
+    const todos = await axios.post("/login", data).catch(function (error) {
+      console.log(error.response.status, "tes");
+      if(error.response.status === 400) {
+            datax = {
+              result: "success",
+              data: error.response.data.error,
+            };
+      }
+    });
+    if("result" in datax) {
+      console.log("jelb")
+      return datax
+
+    }
+    else {
+
+      datax = {
+        result : "success",
+        data: todos.data.token
+      }
+      return datax;
+    }
+
+
 };
 // export const getAllTodos = async () => {
 //   try {

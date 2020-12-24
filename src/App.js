@@ -9,11 +9,12 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
+
           <Route component={Routes}/>
+
         </Switch>
       </Router>
     </div>
   );
 }
-
 export default App;

@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import DarkMode from "provider/darkmode";
 import store from "redux/store";
 import { Provider } from "react-redux";
+import Overlays from "components/Layout"
 ReactDOM.render(
   <React.Fragment>
     {/* <React.StrictMode> */}
@@ -14,6 +15,7 @@ ReactDOM.render(
         <App />
       </DarkMode>
     </Provider>
+
   </React.Fragment>,
   document.getElementById("root")
 );

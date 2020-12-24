@@ -13,12 +13,7 @@ import {
 // Define your state here
 const initialState = {
   loading: false,
-  todos: {
-    // data : {
-    //   name : null,
-    //   status : false
-    // }
-  },
+  todos:"",
   title: "",
 };
 
