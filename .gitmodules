@@ -1,3 +1,3 @@
-[submodule "path_to_submodule"]
+[submodule "teamb-frontend"]
   path = teamb-frontend
   url = git://gitlab.com/glintsxbinar_miniproject_batch9/team-b/teamb-frontend
