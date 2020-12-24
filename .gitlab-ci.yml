@@ -12,6 +12,7 @@ stages:
 build:
   stage: build
   script:
+    - npm run install
     - npm run build
   artifacts:
     paths:
