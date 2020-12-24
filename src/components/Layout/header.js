@@ -9,6 +9,7 @@ import { darkMode } from "provider/darkmode";
 import ModalSignIn from "components/Layout/modal-signin";
 import ModalSignUp from "components/Layout/modal-signup";
 import Search from "components/Layout/search";
+
 const Header = (props) => {
   const {
     theme,
@@ -85,8 +86,10 @@ const Header = (props) => {
           ) : null}
         </div>
       </div>
+
       <ModalSignIn />
       <ModalSignUp />
+
     </div>
   );
 };

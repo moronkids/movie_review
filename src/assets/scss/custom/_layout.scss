@@ -282,6 +282,16 @@
   line-height: 45px;
   color: #ffffff;
 }
+.button-modal-disabled {
+  background: gray;
+  border-radius: 10px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 45px;
+  color: #ffffff;
+}
 $primary: #11998e;
 $secondary: #eb507f;
 $white: #000000;
