@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from "react-router-dom"; // ini buat routing 
 import Homepage from "pages/homepage";
 import Detail from "pages/detail_movie/index";
 import Wrapper from "components/Layout/index";
-import Review from "../components/Review/app"
+import Review from "../components/Review/index"
 import "assets/scss/styles.scss";
 const Routesx = () => {
   const AppRoute = ({

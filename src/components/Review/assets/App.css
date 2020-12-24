@@ -1,0 +1,147 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.note {
+  background: #fff;
+  border-radius: 0px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: 10px;
+  width: 240px;
+  margin: 16px;
+  float: left;
+}
+.note h1 {
+  font-size: 1.1em;
+  margin-bottom: 6px;
+}
+.note p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.note button {
+  position: relative;
+  float: right;
+  margin-right: 10px;
+  color: black;
+  border: none;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  outline: none;
+}
+
+form {
+  position: relative;
+  width: 480px;
+  margin-left: 50px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+form input,
+form textarea {
+  width: 100%;
+  border: none;
+  padding: 4px;
+  outline: none;
+  font-size: 1.2em;
+  font-family: inherit;
+  resize: none;
+}
+form button {
+  position: absolute;
+  right: 18px;
+  bottom: -18px;
+  background: #fff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  outline: none;
+}
+
+/* .favourite-image {
+  position: absolute;
+  width: 153px;
+  height: 143px;
+  left: 139px;
+  top: 1774px;  
+} */
+.comment-review {
+  margin: 15px 60px;
+}
+
+.favourite-image{
+  width: 100px;
+}
+
+.teks-body {
+  margin-left: 25px;
+}
+
+@media (max-width: 400px) {
+  form input, .teks-area {
+    max-width: 10px;
+  }
+}
+.flex-container-rating{
+  display: flex;
+  margin: 25px 50px;
+}
+.teks-area {
+  margin-left: 100px;
+  margin-bottom: 25px;
+  width: 100%;
+  border: none;
+  padding: 4px;
+  outline: none;
+  font-family: inherit;
+  resize: none;
+}
+
+.load-botton {
+  margin-bottom: 25px;
+}
