@@ -1,6 +1,7 @@
 import React from "react";
 
-const main = () => {
+const main = (props) => {
+  console.log(props,"child")
   return (
     <div>
       <div className="d-flex">
@@ -12,19 +13,7 @@ const main = () => {
         </div>
       </div>
       <div className="">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi officia
-        impedit, voluptatibus omnis recusandae maxime voluptas ea praesentium
-        magni accusamus veritatis. Suscipit iure sunt, ipsam consectetur at est
-        iusto nihil? Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Animi officia impedit, voluptatibus omnis recusandae maxime voluptas ea
-        praesentium magni accusamus veritatis. Suscipit iure sunt, ipsam
-        consectetur at est iusto nihil? Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Animi officia impedit, voluptatibus omnis recusandae
-        maxime voluptas ea praesentium magni accusamus veritatis. Suscipit iure
-        sunt, ipsam consectetur at est iusto nihil? Lorem ipsum dolor sit amet
-        consectetur adipisicing elit. Animi officia impedit, voluptatibus omnis
-        recusandae maxime voluptas ea praesentium magni accusamus veritatis.
-        Suscipit iure sunt, ipsam consectetur at est iusto nihil?
+        {props.dummy.sinposis}
       </div>
       <div className="d-flex">
         <div className="pl-0 pr-1 col-auto my-auto text-sub-overview">
@@ -35,19 +24,21 @@ const main = () => {
         </div>
       </div>
       <div className="">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi officia
-        impedit, voluptatibus omnis recusandae maxime voluptas ea praesentium
-        magni accusamus veritatis. Suscipit iure sunt, ipsam consectetur at est
-        iusto nihil? Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Animi officia impedit, voluptatibus omnis recusandae maxime voluptas ea
-        praesentium magni accusamus veritatis. Suscipit iure sunt, ipsam
-        consectetur at est iusto nihil? Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Animi officia impedit, voluptatibus omnis recusandae
-        maxime voluptas ea praesentium magni accusamus veritatis. Suscipit iure
-        sunt, ipsam consectetur at est iusto nihil? Lorem ipsum dolor sit amet
-        consectetur adipisicing elit. Animi officia impedit, voluptatibus omnis
-        recusandae maxime voluptas ea praesentium magni accusamus veritatis.
-        Suscipit iure sunt, ipsam consectetur at est iusto nihil?
+        <table className="">
+          <td>
+            <tr className="">Release Date</tr>
+            <tr className="">Director</tr>
+            <tr className="">Featured Song</tr>
+            <tr className="">Budget</tr>
+
+          </td>
+          <td>
+            <tr className="">: {props.dummy.movie_info.release_data}</tr>
+            <tr className="">: {props.dummy.movie_info.director}</tr>
+            <tr className="">: {props.dummy.movie_info.featured_song}</tr>
+            <tr className="">: {props.dummy.movie_info.budget}</tr>
+          </td>
+        </table>
       </div>
     </div>
   );

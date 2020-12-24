@@ -57,36 +57,8 @@ const Category = (props) => {
       <div className="mt-3">
         <span className="text-category-main">Browse by Category</span>
       </div>
-      <div className="d-flex flex-wrap">
+      <div className="d-flex flex-wrap mb-3">
         {cat}
-        {/* <span
-            id="1"
-            onClick={(e) => addActive("1")}
-            className={classn + (toggle === "1" ? " active" : "")}
-          >
-            all
-          </span>
-          <span
-            id="2"
-            onClick={(e) => addActive("2")}
-            className={classn + (toggle === "2" ? " active" : "")}
-          >
-            sample
-          </span>
-          <span
-            id="3"
-            onClick={(e) => addActive("3")}
-            className={classn + (toggle === "3" ? " active" : "")}
-          >
-            sample
-          </span>
-          <span
-            id="4"
-            onClick={(e) => addActive("4")}
-            className={classn + (toggle === "4" ? " active" : "")}
-          >
-            sample
-          </span> */}
       </div>
     </div>
   );

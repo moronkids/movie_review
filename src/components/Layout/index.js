@@ -18,7 +18,7 @@ const Index = (props) => {
           className="sticky-top w-100 h-100
         "
         >
-          <div className="none md-block position-absolute  sticky-top w-100 h-100 ">
+          <div className="d-none d-md-block position-absolute  sticky-top w-100 h-100 ">
             <div
               className={
                 theme === "light"
