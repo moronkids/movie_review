@@ -1,9 +1,10 @@
 import React from 'react';
+import Characters from 'components/Character/index'
 
 const Character = () => {
     return (
         <div>
-            "This is character"
+            <Characters />
         </div>
     );
 };
