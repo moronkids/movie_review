@@ -1,8 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Homepage } from "data_dummy/homepage";
 import Category from "components/Homepage/category";
-import Slide from "react-reveal/Slide";
-// import Reveal from "react-reveal/Slide";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
