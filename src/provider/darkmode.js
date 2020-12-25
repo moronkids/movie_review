@@ -5,15 +5,20 @@ const Darkmode = (props) => {
   const [path, setPath] = useState("overview");
   const [modal, setModal] = useState(false);
   const [modalSignUp, setModalSignUp] = useState(false);
+  const [activeTab, setActiveTab] = useState("1");
 
+  // const togglex = (tab) => {
+  //   console.log(tab,"initab")
+  //   if (activeTab !== tab) setActiveTab(tab);
+  // };
   const toggleModal = () => {
-    toggleAll()
-    setModal(!modal)
+    toggleAll();
+    setModal(!modal);
     // setModalSignUp(!modalSignUp);
   };
   const toggleModalSignUp = () => {
-    toggleAll()
-    setModalSignUp(!modalSignUp)
+    toggleAll();
+    setModalSignUp(!modalSignUp);
   };
   const toggleAll = () => {
     setModalSignUp(false);
@@ -49,6 +54,8 @@ const Darkmode = (props) => {
         modalSignUp,
         setModalSignUp,
         toggleModalSignUp,
+        activeTab,
+        setActiveTab
       }}
     >
       {props.children}

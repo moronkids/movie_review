@@ -3,6 +3,9 @@ import { Route, Switch, Redirect } from "react-router-dom"; // ini buat routing 
 import Homepage from "pages/homepage";
 import Detail from "pages/detail_movie/index";
 import Wrapper from "components/Layout/index";
+import Profile from "components/Profile/index";
+// import Character from "pages/detail_movie/character";
+// import Review from "pages/detail_movie/review"
 import "assets/scss/styles.scss";
 const Routesx = () => {
   const AppRoute = ({
@@ -38,25 +41,19 @@ const Routesx = () => {
         />
         <AppRoute
           exact
-          path="/overview"
+          path="/detail_movie"
           layout={_Guest}
           auth={Guest}
           component={Detail}
         />
         <AppRoute
           exact
-          path="/characters"
+          path="/profile"
           layout={_Guest}
           auth={Guest}
-          component={Detail}
+          component={Profile}
         />
-        <AppRoute
-          exact
-          path="/review"
-          layout={_Guest}
-          auth={Guest}
-          component={Detail}
-        />
+
       </Switch>
     </section>
   );

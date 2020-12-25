@@ -30,7 +30,7 @@ export default (state = initialState, { type, payload }) => {
     // Get todos
     case PUT_SIGN_IN:
       return {
-        ...state,
+        ...state, //spread operator copy all data fromn inital state
         todos: payload,
         loading: false,
       };
