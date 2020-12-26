@@ -1,0 +1,3 @@
+export const DETAIL_MOVIE = "DETAIL_MOVIE";
+export const PUT_DETAIL_MOVIE = "PUT_DETAIL_MOVIE";
+export const SET_LOADING_ID = "SET_LOADING_ID";

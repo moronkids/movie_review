@@ -15,6 +15,7 @@ const initialState = {
   loading: false,
   todos:"",
   title: "",
+  // modal: false
 };
 
 // This export default will control your state for your application

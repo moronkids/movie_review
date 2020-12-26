@@ -41,10 +41,7 @@ const ModalExample = (props) => {
         className={className}
       >
         <ModalHeader toggle={toggleModalSignUp} close={closeBtn}>
-          <Icon
-            center={true}
-            textColor={localStorage.darkmode === "light" ? "blue" : "blue"}
-          />
+          <Icon center={true} textColor={"black"} />
         </ModalHeader>
         <ModalBody>
           <div class="form__group field">

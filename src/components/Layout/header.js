@@ -103,8 +103,7 @@ const Header = ({props, todos, login}) => {
           ) : null}
         </div>
       </div>
-
-      <ModalSignIn />
+      <ModalSignIn/>
       <ModalSignUp />
     </div>
   );

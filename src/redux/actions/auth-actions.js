@@ -11,3 +11,4 @@ export const SET_LOADING = "SET_LOADING";
 
 export const SIGN_IN = "SIGN_IN"
 export const PUT_SIGN_IN = "PUT_SIGN_IN"
+export const MODAL_SIGN_IN = "MODAL_SIGN_IN"

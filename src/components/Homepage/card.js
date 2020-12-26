@@ -3,7 +3,8 @@ import { Homepage } from "data_dummy/homepage";
 import Category from "components/Homepage/category";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import {
   TabContent,
   TabPane,
@@ -21,7 +22,8 @@ import classnames from "classnames";
 import Styled from "styled-components";
 import { darkMode } from "provider/darkmode";
 import { act } from "@testing-library/react";
-const Cardx = (props) => {
+import { DETAIL_MOVIE } from "redux/actions/detailMovie-actions";
+const Cardx = ({ getIdMovie }) => {
   AOS.init();
   const { activeTab, setActiveTab, toggle } = useContext(darkMode);
   console.log(activeTab, "akitp");
@@ -59,6 +61,10 @@ const Cardx = (props) => {
   ];
   const [pell, setPell] = useState("1");
   const [delay, setDelay] = useState(2000);
+  const intoDetail = (e) => {
+    console.log(e, "ini id");
+    getIdMovie(e);
+  };
   useEffect(() => {
     // if(pell !== activeTab) {
     //   setPell(activeTab);
@@ -73,20 +79,29 @@ const Cardx = (props) => {
     } else {
       z = 300;
     }
+
     //map, foreach, while, do while, for
     return (
       <>
         <div className="col-auto m-md-0 mx-auto ">
-          {/* <Slide bottom duration={z}> */}
-          <img
-            className="cardx"
-            src={val.image}
-            data-aos="fade-up"
-            data-aos-delay={(300 + z).toString()}
-            data-aos-duration={(300 + z).toString()}
-          />
-          <p style={({ color: "white" }, { fontSize: "20px" })}>{val.title}</p>
-          <p style={{ marginTop: "-25px" }}>{val.category}</p>
+          <Link
+            onClick={() => intoDetail(val.id)}
+            to={"/detail_movie/" + val.id}
+            className=""
+          >
+            {/* <Slide bottom duration={z}> */}
+            <img
+              className="cardx"
+              src={val.image}
+              data-aos="fade-up"
+              data-aos-delay={(300 + z).toString()}
+              data-aos-duration={(300 + z).toString()}
+            />
+            <p style={({ color: "white" }, { fontSize: "20px" })}>
+              {val.title}
+            </p>
+            <p style={{ marginTop: "-25px" }}>{val.category}</p>
+          </Link>
         </div>
       </>
     );
@@ -115,5 +130,15 @@ const Cardx = (props) => {
     </>
   );
 };
+const mapStateToProps = (state) => {
+  console.log(state, "state to props");
+  // return {
+  //   todos: state.todo,
+  //   loading: state.todo.loading,
+  // };
+};
 
-export default Cardx;
+const mapDispatchToProps = (dispatch) => ({
+  getIdMovie: (data) => dispatch({ type: DETAIL_MOVIE, payload: data }),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Cardx);

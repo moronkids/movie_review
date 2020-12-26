@@ -4,21 +4,13 @@ import { put, call, takeLatest, takeEvery } from "redux-saga/effects";
 // Import all actions and api's
 import {
   SET_LOADING,
-  // GET_TODOS,
-  // GET_TODOS_REQUESTED,
-  // SET_TODO_TITLE,
-  // SET_TODO_TITLE_REQUESTED,
-  // CLEAR_TODO_TITLE,
-  // CREATE_TODO,
-  // CREATE_TODO_REQUESTED,
-  // DELETE_TODO,
-  // DELETE_TODO_REQUESTED,
   SIGN_IN,
   PUT_SIGN_IN
 } from "redux/actions/auth-actions";
+import { PUT_DETAIL_MOVIE, DETAIL_MOVIE, SET_LOADING_ID } from "redux/actions/detailMovie-actions";
 
 // Import all api's
-import { signIn } from "redux/api/auth-api";
+import { signIn} from "redux/api/auth-api";
 
 // Here's the unique part, generator function*, function with asterisk(*)
 
@@ -31,6 +23,16 @@ function* signInFunc({payload}) {
   console.log(todos, "saga");
   yield put({ type: PUT_SIGN_IN, payload: todos });
 
+}
+function* getIdMovie({ payload }) {
+  console.log(payload, "ini movie")
+  console.log("ini");
+  // yield put({ type: SET_LOADING_ID });
+
+  // const todos = yield call(signIn, payload);
+  // console.log(todos, "saga");
+  yield put({ type: PUT_DETAIL_MOVIE, payload: payload });
+  console.log("movie selese")
 }
 // function* getTodos() {
 //   yield put({ type: SET_LOADING });
@@ -69,6 +71,7 @@ function* signInFunc({payload}) {
 // Export the saga (todo-saga)
 export default function* todoSaga() {
   yield takeEvery(SIGN_IN, signInFunc); //ambil api dari firebase
+  yield takeLatest(DETAIL_MOVIE, getIdMovie); //ambil api dari firebase
   // yield takeEvery(GET_TODOS_REQUESTED, getTodos); //ambil api dari firebase
   // yield takeEvery(SET_TODO_TITLE_REQUESTED, setTodoTitle);
   // yield takeLatest(CREATE_TODO_REQUESTED, createTodo);
