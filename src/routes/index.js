@@ -3,11 +3,8 @@ import { Route, Switch, Redirect } from "react-router-dom"; // ini buat routing 
 import Homepage from "pages/homepage";
 import Detail from "pages/detail_movie/index";
 import Wrapper from "components/Layout/index";
-<<<<<<< HEAD
 import Help from ""
-=======
 import Profile from "components/Profile/index";
->>>>>>> 76e2dc36652b0dd046ae566459b4860db6f944f1
 // import Character from "pages/detail_movie/character";
 // import Review from "pages/detail_movie/review"
 import "assets/scss/styles.scss";

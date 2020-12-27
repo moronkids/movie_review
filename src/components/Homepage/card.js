@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Homepage } from "data_dummy/homepage";
 import Category from "components/Homepage/category";
-import AOS from "aos";
+// import AOS from "aos";
 import "aos/dist/aos.css";
 
 import {
@@ -22,7 +22,7 @@ import Styled from "styled-components";
 import { darkMode } from "provider/darkmode";
 import { act } from "@testing-library/react";
 const Cardx = (props) => {
-  AOS.init();
+  // AOS.init();
   const { activeTab, setActiveTab, toggle } = useContext(darkMode);
   console.log(activeTab, "akitp");
   const valueCategory = [
