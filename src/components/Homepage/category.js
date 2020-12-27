@@ -1,8 +1,22 @@
 import React, { useState, useEffect, useContext } from "react";
 import { darkMode } from "provider/darkmode";
+import {
+  TabContent,
+  TabPane,
+  Nav,
+  NavItem,
+  NavLink,
+  Card,
+  Button,
+  CardTitle,
+  CardText,
+  Row,
+  Col,
+} from "reactstrap";
+import classnames from "classnames";
 const Category = (props) => {
   // console.log()
-  const { path, setPath } = useContext(darkMode);
+  const { path, setPath, setActiveTab, activeTab, togglex } = useContext(darkMode);
   console.log(props, path, "tes");
   const [toggle, setToggle] = useState(0);
   const [location, setLocation] = useState(props.location);
@@ -26,16 +40,27 @@ const Category = (props) => {
   let cat;
   if (props.detect === "homepage") {
     cat = props.valueProps.map((val, i) => {
-      console.log(toggle, location);
+      console.log(toggle, location, val.id, "su");
       const mix = `${val.spacing} ${classn}`;
       return (
-        <span
-          id={i}
-          onClick={(e) => addActive(i)}
-          className={mix + (toggle === i ? " active" : "")}
+        <NavLink
+          onClick={() => setActiveTab(val.id.toString())}
+          className={classnames({ active: activeTab === val.id })}
         >
-          {val.name}
-        </span>
+          <span
+            id={i}
+            className={
+              mix +
+              (toggle === i ? " active" : " ")
+            }
+            onClick={(e) => {
+              addActive(i);
+              // togglex(val.id);
+            }}
+          >
+            {val.name}
+          </span>
+        </NavLink>
       );
     });
   } else {

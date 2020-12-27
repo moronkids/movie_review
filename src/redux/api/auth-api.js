@@ -29,7 +29,7 @@ export const signIn = async (data) => {
 
     }
     else {
-
+      localStorage.setItem("token", todos.data.token)
       datax = {
         result : "success",
         data: todos.data.token
