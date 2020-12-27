@@ -4,86 +4,98 @@ import React, { useContext, useState, useEffect } from "react";
 // import { authMethods } from "../../firebase/AuthMethods";
 // import { db } from "../../firebase/FireBaseIndex";
 const axios = defaultAxios.create({
-  baseURL: "https://reqres.in/api", //firebaseku
+  baseURL: "http://13.212.6.137:3000/", //firebaseku
   // headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+  headers: {
+    "Access-Control-Allow-Origin": "http://127.0.0.1:3000",
+    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+  },
+  withCredentials: false,
+  crossorigin: true,
 });
 
-// Get All Todos
 export const signIn = async (data) => {
   console.log(data, "tes login")
-  // try {
-    // const todos = await axios.get("todolist.json)
     let datax ={};
-    const todos = await axios.post("/login", data).catch(function (error) {
-      console.log(error.response.status, "tes");
-      if(error.response.status === 400) {
+    const todos = await axios.post("/user/login", data).catch(function (error) {
+      console.log(error, "tesx");
+      if(error.response.status !== 200) {
+        console.log(error.response, "wuu")
             datax = {
-              result: "success",
-              data: error.response.data.error,
+              result: "failed",
+              logged: false,
             };
+            if("errors" in error.response.data) {
+              if ("email" in error.response.data.errors) {
+                datax.data = error.response.data.errors.email.msg;
+              }
+              if ("password" in error.response.data.errors) {
+                datax.data = error.response.data.errors.password.msg;
+              }
+            }else if ("message" in error.response.data) {
+              datax.data = error.response.data.message;
+            }
       }
     });
     if("result" in datax) {
       console.log("jelb")
       return datax
-
     }
     else {
       localStorage.setItem("token", todos.data.token)
       datax = {
         result : "success",
+        logged: true,
         data: todos.data.token
       }
       return datax;
     }
-
-
 };
-// export const getAllTodos = async () => {
-//   try {
-//     // const todos = await axios.get("todolist.json)
-//     const todos = await axios.get(
-//       "todolist.json?auth=" + localStorage.getItem("token")
-//     );
-//     console.log(todos, "get");
-//     return todos.data;
-//   } catch (err) {
-//     authMethods.signout();
-//     localStorage.setItem("error", err);
-//     console.error(err, "loggin");
-//     return console.error(err);
-//   }
-// };
+export const signUp = async (data) => {
+  console.log(data, "tes signup")
 
-// // Create New Todo
-// export const createNewTodo = async (title) => {
-//   console.log(title, "payload");
-//   try {
-//     const todo = await axios.post(
-//       "todolist.json?auth=" + localStorage.getItem("token"),
-//       title
-//     );
-//     console.log(todo, "ini todo");
-//     const key = todo.data.name;
-//     const susun = {
-//       [key]: title,
-//     };
+  let datax ={};
+    const todos = await axios.post("/user/signup", data).catch(function (error) {
+      console.log(error, "tesx");
+      if(error.response.status !== 200) {
+        console.log(error.response, "wuu")
+            datax = {
+              result: "failed",
+              logged: false,
+            };
+            if("errors" in error.response.data) {
+              if ("email" in error.response.data.errors) {
+                datax.data = error.response.data.errors.email.msg;
+              }
+              if ("password" in error.response.data.errors) {
+                datax.data = error.response.data.errors.password.msg;
+              }
+              if ("fullName" in error.response.data.errors) {
+                datax.data = error.response.data.errors.fullName.msg;
+              }
+              if ("passwordConfirmation" in error.response.data.errors) {
+                datax.data =
+                  error.response.data.errors.passwordConfirmation.msg;
+              }
+            }else if ("message" in error.response.data) {
+              datax.data = error.response.data.message;
+            }
+      }
+    });
+    if(datax.result === "failed") {
+      console.log("jelb")
+      return datax
+    }
+    else {
+      localStorage.setItem("token", todos.data.token)
 
-//     return susun;
-//   } catch (err) {
-//     return console.error(err);
-//   }
-// };
+      const bro = {
+        result : "success",
+        logged: true,
+        data: todos.data.token
+      }
+      console.log(bro, "datax ")
+      return bro;
+    }
+};
 
-// // Delete existed todo
-// export const deleteExistedTodo = async (id) => {
-//   console.log(id, "delet");
-//   try {
-//     let userRef = db.ref("todolist/" + id);
-//     userRef.remove();
-
-//     return id;
-//   } catch (err) {
-//     return console.error(err);
-//   }
-// };

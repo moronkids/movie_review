@@ -5,35 +5,41 @@ import { put, call, takeLatest, takeEvery } from "redux-saga/effects";
 import {
   SET_LOADING,
   SIGN_IN,
-  PUT_SIGN_IN
+  PUT_SIGN_IN,
+  SIGN_OUT,
+  PUT_SIGN_OUT,
+  SIGN_UP,
+  PUT_SIGN_UP
 } from "redux/actions/auth-actions";
 import { PUT_DETAIL_MOVIE, DETAIL_MOVIE, SET_LOADING_ID } from "redux/actions/detailMovie-actions";
 
 // Import all api's
-import { signIn} from "redux/api/auth-api";
+import { signIn, signUp} from "redux/api/auth-api";
 
 // Here's the unique part, generator function*, function with asterisk(*)
 
 // Get Todos
 function* signInFunc({payload}) {
-  console.log("ini sagax")
   yield put({ type: SET_LOADING });
-
   const todos = yield call(signIn, payload);
-  console.log(todos, "saga");
   yield put({ type: PUT_SIGN_IN, payload: todos });
 
 }
-function* getIdMovie({ payload }) {
-  console.log(payload, "ini movie")
-  console.log("ini");
-  // yield put({ type: SET_LOADING_ID });
-
-  // const todos = yield call(signIn, payload);
-  // console.log(todos, "saga");
-  yield put({ type: PUT_DETAIL_MOVIE, payload: payload });
-  console.log("movie selese")
+function* signUpFunc({ payload }) {
+  yield put({ type: SET_LOADING });
+  const todos = yield call(signUp, payload);
+  yield put({ type: PUT_SIGN_UP, payload: todos });
 }
+function* getIdMovie({ payload }) {
+  yield put({ type: SET_LOADING_ID });
+  yield put({ type: PUT_DETAIL_MOVIE, payload: payload });
+}
+function* signOut() {
+  yield put({ type: SET_LOADING });
+  yield put({ type: PUT_SIGN_OUT });
+}
+
+
 // function* getTodos() {
 //   yield put({ type: SET_LOADING });
 
@@ -71,6 +77,8 @@ function* getIdMovie({ payload }) {
 // Export the saga (todo-saga)
 export default function* todoSaga() {
   yield takeEvery(SIGN_IN, signInFunc); //ambil api dari firebase
+  yield takeEvery(SIGN_OUT, signOut); //ambil api dari firebase
+  yield takeEvery(SIGN_UP, signUpFunc); //ambil api dari firebase
   yield takeLatest(DETAIL_MOVIE, getIdMovie); //ambil api dari firebase
   // yield takeEvery(GET_TODOS_REQUESTED, getTodos); //ambil api dari firebase
   // yield takeEvery(SET_TODO_TITLE_REQUESTED, setTodoTitle);

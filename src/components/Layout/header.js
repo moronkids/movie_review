@@ -12,7 +12,7 @@ import ModalSignUp from "components/Layout/modal-signup";
 import Search from "components/Layout/search";
 import Status from "components/Layout/status"
 import { connect } from "react-redux";
-const Header = ({props, todos, login}) => {
+const Header = ({props, todos, login,loading}) => {
   const {
     theme,
     toggleTheme,
@@ -112,7 +112,7 @@ const Header = ({props, todos, login}) => {
 const mapStateToProps = (state) => {
   // console.log(state, "ere")
   return {
-    todos: state.todo.todos.result,
+    todos: "result" in state.todo.todos ?state.todo.todos.result : null ,
     loading: state.todo.loading,
   };
 };

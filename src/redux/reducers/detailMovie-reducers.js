@@ -9,6 +9,7 @@ import {
 const initialState = {
   loading: false,
   id: null,
+  data: {}
 };
 
 // This export default will control your state for your application

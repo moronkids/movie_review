@@ -55,7 +55,8 @@ const Darkmode = (props) => {
         setModalSignUp,
         toggleModalSignUp,
         activeTab,
-        setActiveTab
+        setActiveTab,
+        toggleAll
       }}
     >
       {props.children}
