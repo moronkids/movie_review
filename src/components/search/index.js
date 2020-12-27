@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './asssets/search.css';
 import MovieList from './MovieList'
 import MovieListHeading from "./MovieListHeading";
-import SearchBox from './searchBox'
+import SearchBox from '../Layout/search'
 import AddFavourites from "./AddToFavorites"
 
 const App = () => {

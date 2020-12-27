@@ -4,7 +4,17 @@ const Search = (props) => {
     let classx;
     if(props.show === "mobile") classx ="d-block d-md-none mx-auto mt-2"
     if(props.show === "web") classx =" d-md-block d-none mx-auto mt-2"
-    return (
+      return (
+    //       <div className="col col-sm-4">
+    //           <input
+    //               className="form-control"
+    //               value={props.value}
+    //               onChange={(event) => props.setSearchValue(event.target.value)}
+    //               placeholder='Type to search...'
+    //           ></input>
+    //       </div>
+    //   )
+    // return (
       <>
         <input
           className={classx}
@@ -13,5 +23,6 @@ const Search = (props) => {
       </>
     );
 };
+
 
 export default Search;
