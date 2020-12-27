@@ -4,10 +4,9 @@ import Homepage from "pages/homepage";
 import Detail from "pages/detail_movie/index";
 import Wrapper from "components/Layout/index";
 import Profile from "components/Profile/index";
-// import Character from "pages/detail_movie/character";
-// import Review from "pages/detail_movie/review"
+import {connect} from "react-redux"
 import "assets/scss/styles.scss";
-const Routesx = () => {
+const Routesx = ({ id }) => {
   const AppRoute = ({
     component: Component,
     layout: Layout,
@@ -41,7 +40,7 @@ const Routesx = () => {
         />
         <AppRoute
           exact
-          path="/detail_movie"
+          path={"/detail_movie/"+id}
           layout={_Guest}
           auth={Guest}
           component={Detail}
@@ -53,10 +52,16 @@ const Routesx = () => {
           auth={Guest}
           component={Profile}
         />
-
       </Switch>
     </section>
   );
 };
+const mapStateToProps = (state) => {
+  return {
+    id: state.movie.id,
 
-export default Routesx;
+  };
+}
+const mapDispatchToProps = (dispatch) => {};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Routesx);

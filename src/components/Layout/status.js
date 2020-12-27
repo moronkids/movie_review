@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import { Collapse, Button, CardBody, Card } from "reactstrap";
 import styled from "styled-components";
+import { connect } from "react-redux";
+
+import { SIGN_OUT } from "redux/actions/auth-actions";
   const Imej = styled.div`
     background-image: url("https://randomuser.me/api/portraits/women/40.jpg");
     border-radius: 50%;
@@ -9,11 +12,13 @@ import styled from "styled-components";
     background-repeat: no-repeat;
     background-size: contain;
   `;
-const Example = (props) => {
+const Example = ({props, signOut, loading}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+  useEffect(() => {
 
+  }, [loading]);
   return (
     <div className="w-100 position-relative d-flex">
       <Collapse isOpen={isOpen} className="position-absolute w-100 mt-5">
@@ -21,7 +26,7 @@ const Example = (props) => {
           <CardBody className="p-2" style={{color: localStorage.darkmode === "dark" ? "white":"black"}}>
             <div className="text-dark border-bottom py-1" >Profile</div>
             <div className="text-dark border-bottom py-1" >Help</div>
-            <div className="text-dark py-1" >Signout</div>
+            <div className="text-dark py-1" onClick={() => signOut()}>Signout</div>
 
           </CardBody>
         </Card>
@@ -39,5 +44,13 @@ const Example = (props) => {
     </div>
   );
 };
+const mapStateToProps = (state) => {
+  return {
+    loading: state.todo.loading,
+  };
+};
 
-export default Example;
+const mapDispatchToProps = (dispatch) => ({
+  signOut: (data) => dispatch({ type: SIGN_OUT}),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Example);
