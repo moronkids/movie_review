@@ -9,12 +9,13 @@ import {
   SIGN_OUT,
   PUT_SIGN_OUT,
   SIGN_UP,
-  PUT_SIGN_UP
+  PUT_SIGN_UP,
 } from "redux/actions/auth-actions";
-import { PUT_DETAIL_MOVIE, DETAIL_MOVIE, SET_LOADING_ID } from "redux/actions/detailMovie-actions";
+import { PUT_DETAIL_MOVIE, DETAIL_MOVIE, SET_LOADING_ID, PUT_MOVIE_CATEGORY, MOVIE_CATEGORY } from "redux/actions/detailMovie-actions";
 
 // Import all api's
 import { signIn, signUp} from "redux/api/auth-api";
+import { getByCategory } from "redux/api/movie-api";
 
 // Here's the unique part, generator function*, function with asterisk(*)
 
@@ -33,6 +34,11 @@ function* signUpFunc({ payload }) {
 function* getIdMovie({ payload }) {
   yield put({ type: SET_LOADING_ID });
   yield put({ type: PUT_DETAIL_MOVIE, payload: payload });
+}
+function* getMovieByCategory({ payload }) {
+  yield put({ type: SET_LOADING_ID });
+   const todos = yield call(getByCategory, payload);
+  yield put({ type: PUT_MOVIE_CATEGORY, payload: todos });
 }
 function* signOut() {
   yield put({ type: SET_LOADING });
@@ -80,6 +86,7 @@ export default function* todoSaga() {
   yield takeEvery(SIGN_OUT, signOut); //ambil api dari firebase
   yield takeEvery(SIGN_UP, signUpFunc); //ambil api dari firebase
   yield takeLatest(DETAIL_MOVIE, getIdMovie); //ambil api dari firebase
+  yield takeEvery(MOVIE_CATEGORY, getMovieByCategory); //ambil api dari firebase
   // yield takeEvery(GET_TODOS_REQUESTED, getTodos); //ambil api dari firebase
   // yield takeEvery(SET_TODO_TITLE_REQUESTED, setTodoTitle);
   // yield takeLatest(CREATE_TODO_REQUESTED, createTodo);

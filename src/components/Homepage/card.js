@@ -22,8 +22,8 @@ import classnames from "classnames";
 import Styled from "styled-components";
 import { darkMode } from "provider/darkmode";
 import { act } from "@testing-library/react";
-import { DETAIL_MOVIE } from "redux/actions/detailMovie-actions";
-const Cardx = ({ getIdMovie }) => {
+import { DETAIL_MOVIE, MOVIE_CATEGORY } from "redux/actions/detailMovie-actions";
+const Cardx = ({ getIdMovie, getMovieByCategory, data, loading }) => {
   AOS.init();
   const { activeTab, setActiveTab, toggle } = useContext(darkMode);
   console.log(activeTab, "akitp");
@@ -65,15 +65,19 @@ const Cardx = ({ getIdMovie }) => {
     console.log(e, "ini id");
     getIdMovie(e);
   };
-  useEffect(() => {
-    // if(pell !== activeTab) {
-    //   setPell(activeTab);
-    // }
-    setPell(activeTab);
-  }, [activeTab]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect( async () => {
+    // console.log("just once")
+      getMovieByCategory({
+        genre: "comedy",
+        page: 1,
+      });
+
+  //   setPell(activeTab);
+  }, [getMovieByCategory]);
   console.log(pell, activeTab, "banding");
   let z = 300;
-  const Loopx = Homepage.map((val, i) => {
+  const Loopx = data.map((val, i) => {
     if (i !== 0 && z <= 1500) {
       z += 300;
     } else {
@@ -83,10 +87,10 @@ const Cardx = ({ getIdMovie }) => {
     //map, foreach, while, do while, for
     return (
       <>
-        <div className="col-auto m-md-0 mx-auto ">
+        <div className="col-auto m-md-0 mx-auto pb-2">
           <Link
-            onClick={() => intoDetail(val.id)}
-            to={"/detail_movie/" + val.id}
+            onClick={() => intoDetail(val._id)}
+            to={"/detail_movie/" + val._id}
             className=""
           >
             {/* <Slide bottom duration={z}> */}
@@ -98,9 +102,9 @@ const Cardx = ({ getIdMovie }) => {
               data-aos-duration={(300 + z).toString()}
             />
             <p style={({ color: "white" }, { fontSize: "20px" })}>
-              {val.title}
+              {val.Movie}
             </p>
-            <p style={{ marginTop: "-25px" }}>{val.category}</p>
+            <p style={{ marginTop: "-25px" }}>{val.Genre}</p>
           </Link>
         </div>
       </>
@@ -132,13 +136,14 @@ const Cardx = ({ getIdMovie }) => {
 };
 const mapStateToProps = (state) => {
   console.log(state, "state to props");
-  // return {
-  //   todos: state.todo,
-  //   loading: state.todo.loading,
-  // };
+  return {
+    data: state.movie.data.data,
+    loading: state.movie.loading,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => ({
   getIdMovie: (data) => dispatch({ type: DETAIL_MOVIE, payload: data }),
+  getMovieByCategory: (data) => dispatch({ type: MOVIE_CATEGORY, payload: data }),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Cardx);
