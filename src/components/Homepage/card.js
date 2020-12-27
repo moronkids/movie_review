@@ -3,7 +3,8 @@ import { Homepage } from "data_dummy/homepage";
 import Category from "components/Homepage/category";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import {
   TabContent,
   TabPane,
@@ -21,7 +22,8 @@ import classnames from "classnames";
 import Styled from "styled-components";
 import { darkMode } from "provider/darkmode";
 import { act } from "@testing-library/react";
-const Cardx = (props) => {
+import { DETAIL_MOVIE, MOVIE_CATEGORY } from "redux/actions/detailMovie-actions";
+const Cardx = ({ getIdMovie, getMovieByCategory, data, loading }) => {
   AOS.init();
   const { activeTab, setActiveTab, toggle } = useContext(darkMode);
   console.log(activeTab, "akitp");
@@ -59,34 +61,51 @@ const Cardx = (props) => {
   ];
   const [pell, setPell] = useState("1");
   const [delay, setDelay] = useState(2000);
-  useEffect(() => {
-    // if(pell !== activeTab) {
-    //   setPell(activeTab);
-    // }
-    setPell(activeTab);
-  }, [activeTab]);
+  const intoDetail = (e) => {
+    console.log(e, "ini id");
+    getIdMovie(e);
+  };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect( async () => {
+    // console.log("just once")
+      getMovieByCategory({
+        genre: "comedy",
+        page: 1,
+      });
+
+  //   setPell(activeTab);
+  }, [getMovieByCategory]);
   console.log(pell, activeTab, "banding");
   let z = 300;
-  const Loopx = Homepage.map((val, i) => {
+  const Loopx = data.map((val, i) => {
     if (i !== 0 && z <= 1500) {
       z += 300;
     } else {
       z = 300;
     }
+
     //map, foreach, while, do while, for
     return (
       <>
-        <div className="col-auto m-md-0 mx-auto ">
-          {/* <Slide bottom duration={z}> */}
-          <img
-            className="cardx"
-            src={val.image}
-            data-aos="fade-up"
-            data-aos-delay={(300 + z).toString()}
-            data-aos-duration={(300 + z).toString()}
-          />
-          <p style={({ color: "white" }, { fontSize: "20px" })}>{val.title}</p>
-          <p style={{ marginTop: "-25px" }}>{val.category}</p>
+        <div className="col-auto m-md-0 mx-auto pb-2">
+          <Link
+            onClick={() => intoDetail(val._id)}
+            to={"/detail_movie/" + val._id}
+            className=""
+          >
+            {/* <Slide bottom duration={z}> */}
+            <img
+              className="cardx"
+              src={val.image}
+              data-aos="fade-up"
+              data-aos-delay={(300 + z).toString()}
+              data-aos-duration={(300 + z).toString()}
+            />
+            <p style={({ color: "white" }, { fontSize: "20px" })}>
+              {val.Movie}
+            </p>
+            <p style={{ marginTop: "-25px" }}>{val.Genre}</p>
+          </Link>
         </div>
       </>
     );
@@ -115,5 +134,16 @@ const Cardx = (props) => {
     </>
   );
 };
+const mapStateToProps = (state) => {
+  console.log(state, "state to props");
+  return {
+    data: state.movie.data.data,
+    loading: state.movie.loading,
+  };
+};
 
-export default Cardx;
+const mapDispatchToProps = (dispatch) => ({
+  getIdMovie: (data) => dispatch({ type: DETAIL_MOVIE, payload: data }),
+  getMovieByCategory: (data) => dispatch({ type: MOVIE_CATEGORY, payload: data }),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Cardx);

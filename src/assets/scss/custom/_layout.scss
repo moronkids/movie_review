@@ -10,7 +10,8 @@
   // opacity: 75%;
 }
 .cardx {
-  width: 152px;
+  height: 220px;
+  width: auto;
 }
 .review-star {
   z-index: 100;
@@ -105,7 +106,8 @@
 }
 @media only screen and (max-width: 573px) {
   .cardx {
-    width: 152px;
+    height: 220px;
+    width: auto;
   }
   .review-star {
     z-index: 100;

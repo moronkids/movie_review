@@ -2,6 +2,9 @@
 import {
   SET_LOADING,
   PUT_SIGN_IN,
+  PUT_SIGN_OUT,
+  PUT_SIGN_UP,
+  UPDATE_STATUS,
   // GET_TODOS,
   // SET_TODO_TITLE,
   // CREATE_TODO,
@@ -13,27 +16,48 @@ import {
 // Define your state here
 const initialState = {
   loading: false,
-  todos:"",
-  title: "",
+  todos: {},
+  // logged: false
+  // modal: false
 };
 
 // This export default will control your state for your application
 export default (state = initialState, { type, payload }) => {
   console.log(type, payload, "reducers");
   switch (type) {
-    // Set loading
     case SET_LOADING:
       return {
         ...state,
         loading: true,
       };
-    // Get todos
-    case PUT_SIGN_IN:
+    case UPDATE_STATUS:
+      // state.todos.logged = false
       return {
-        ...state, //spread operator copy all data fromn inital state
+        ...state,
+        loading: false
+      };
+    case PUT_SIGN_IN:
+      console.log(payload, "ini payload")
+      return {
+        ...state,
         todos: payload,
         loading: false,
       };
+    case PUT_SIGN_UP:
+       console.log(payload, "ini payload");
+      return {
+        ...state,
+        todos: payload,
+        loading: false,
+      };
+    case PUT_SIGN_OUT:
+      localStorage.removeItem("token")
+      return {
+        ...state,
+        todos: {},
+        loading: false,
+      };
+
     // case GET_TODOS:
     //   return {
     //     ...state,
