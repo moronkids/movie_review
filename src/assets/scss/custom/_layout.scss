@@ -9,7 +9,9 @@
   position: relative;
   // opacity: 75%;
 }
-
+.cardx {
+  width: 152px;
+}
 .review-star {
   z-index: 100;
   margin-left: 70px;
@@ -65,6 +67,11 @@
   color: #ffffff;
 }
 
+@media only screen and (max-width: 990px) {
+  .cardx {
+    width: 138px;
+  }
+}
 @media only screen and (max-width: 768px) {
   .review-star {
     z-index: 100;
@@ -97,6 +104,9 @@
   }
 }
 @media only screen and (max-width: 573px) {
+  .cardx {
+    width: 152px;
+  }
   .review-star {
     z-index: 100;
     margin-left: 40px;
@@ -161,6 +171,9 @@
   }
 }
 @media only screen and (max-width: 379px) {
+  .cardx {
+    width: 127px;
+  }
   .review-star {
     z-index: 100;
     margin-left: 20px;
@@ -192,6 +205,9 @@
   }
 }
 @media only screen and (max-width: 320px) {
+  .cardx {
+    width: 245px;
+  }
   .desc-banner {
     font-family: Roboto;
     font-style: normal;
@@ -233,7 +249,7 @@
 
 .modal-dialog {
   display: flex;
-  height: 75%;
+  height: 90vh;
 }
 
 .modal-content {
@@ -258,6 +274,16 @@
 }
 .button-modal {
   background: #fe024e;
+  border-radius: 10px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 45px;
+  color: #ffffff;
+}
+.button-modal-disabled {
+  background: gray;
   border-radius: 10px;
   font-family: Roboto;
   font-style: normal;
@@ -352,3 +378,9 @@ body {
 .text-pink {
   color: $secondary;
 }
+
+// .table {
+//   width: 100%;
+//   margin-bottom: 1rem;
+//   color: inherit;
+// }

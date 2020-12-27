@@ -308,6 +308,13 @@ export const Homepage = [
         title : "Naruto",
         image : Img,
         category: "Anime"
+
+    },
+    {
+        id : 51,
+        title : "Naruto",
+        image : Img,
+        category: "Anime"
     }
 ]
 

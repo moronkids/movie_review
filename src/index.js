@@ -1,15 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import DarkMode from "provider/darkmode"
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import DarkMode from "provider/darkmode";
+import store from "redux/store";
+import { Provider } from "react-redux";
+import Overlays from "components/Layout"
 ReactDOM.render(
   <React.Fragment>
-  {/* <React.StrictMode> */}
-    <DarkMode>
-      <App />
-    </DarkMode>
+    {/* <React.StrictMode> */}
+    <Provider store={store}>
+      <DarkMode>
+        <App />
+      </DarkMode>
+    </Provider>
+
   </React.Fragment>,
   document.getElementById("root")
 );
