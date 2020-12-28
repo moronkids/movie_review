@@ -1,8 +1,8 @@
-import React, { useState , useEffect} from "react";
+import React, { useState , useEffect,useContext} from "react";
 import { Collapse, Button, CardBody, Card } from "reactstrap";
 import styled from "styled-components";
 import { connect } from "react-redux";
-
+import { darkMode } from "provider/darkmode";
 import { SIGN_OUT } from "redux/actions/auth-actions";
   const Imej = styled.div`
     background-image: url("https://randomuser.me/api/portraits/women/40.jpg");
@@ -14,7 +14,21 @@ import { SIGN_OUT } from "redux/actions/auth-actions";
   `;
 const Example = ({props, signOut, loading}) => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const {
+    theme,
+    toggleTheme,
+    modal,
+    setModal,
+    toggleModal,
+    closeBtn,
+    className,
+    modalSignUp,
+    toggleModalSignUp,
+    setModalSignUp,
+    toggleAll,
+    count,
+    setCount,
+  } = useContext(darkMode);
   const toggle = () => setIsOpen(!isOpen);
   useEffect(() => {
 
@@ -26,7 +40,7 @@ const Example = ({props, signOut, loading}) => {
           <CardBody className="p-2" style={{color: localStorage.darkmode === "dark" ? "white":"black"}}>
             <div className="text-dark border-bottom py-1" >Profile</div>
             <div className="text-dark border-bottom py-1" >Help</div>
-            <div className="text-dark py-1" onClick={() => signOut()}>Signout</div>
+            <div className="text-dark py-1" onClick={() => {signOut();setCount(5)}}>Signout</div>
 
           </CardBody>
         </Card>
