@@ -8,6 +8,7 @@ import { darkMode } from "provider/darkmode";
 import { Overviewx } from "data_dummy/overview";
 import { connect } from 'react-redux';
 import Card from "components/Homepage/card";
+import Page from "components/Homepage/page_nation";
 import {
   MOVIE_ID
 } from "redux/actions/detailMovie-actions";
@@ -41,7 +42,7 @@ const Index = ({props, getMovieById, id, data, loading, query}) => {
     return (
       <>
         {query !== "" ? (
-          <Card />
+          <><Card /><Page/></>
         ) : (
           <>
             <Banner dummy={data} />

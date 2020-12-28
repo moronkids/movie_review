@@ -14,16 +14,18 @@ export const getByCategory = async (data) => {
   let page = data.page;
   let response = {};
   const todos = await axios
-    .post("movie/getMovieCategory/" + page, { genre: data.genre })
+    .get("movie/getAllMovie/" + page)
     .catch(function (error) {
       if (error.response.status !== 200) {
+        console.log(error.response, "ini error")
         response = {
           result: "failed",
-          data: null,
+          data: [],
         };
       }
     });
   if (response.result === "failed") {
+    console.log(response, "gagal")
     return response;
   } else {
     response = {

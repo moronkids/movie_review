@@ -74,8 +74,8 @@ const Cardx = ({ getIdMovie, getMovieByCategory, query,data, loading }) => {
     getIdMovie(e);
   };
   // eslint-disable-next-line react-hooks/exhaustive-deps
+  console.log(query,"just once")
   useEffect(async () => {
-    // console.log("just once")
     if (query === "") {
       getMovieByCategory({
         genre: "comedy",
