@@ -6,6 +6,7 @@ import Wrapper from "components/Layout/index";
 // import Help from ""
 import Profile from "components/Profile/index";
 import {connect} from "react-redux"
+import SearchBox from "components/search/index"
 import "assets/scss/styles.scss";
 const Routesx = ({ id }) => {
   const AppRoute = ({
@@ -52,6 +53,13 @@ const Routesx = ({ id }) => {
           layout={_Guest}
           auth={Guest}
           component={Profile}
+        />
+         <AppRoute
+          exact
+          path="/search"
+          layout={_Guest}
+          auth={Guest}
+          component={SearchBox}
         />
       </Switch>
     </section>
