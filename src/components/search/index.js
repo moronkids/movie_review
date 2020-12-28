@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './asssets/search.css';
 import MovieList from './MovieList'
-import MovieListHeading from "./MovieListHeading";
-import SearchBox from './searchBox'
+// import MovieListHeading from "./MovieListHeading";
+import SearchBox from 'components/Layout/search'
 import AddFavourites from "./AddToFavorites"
 
 const App = () => {
@@ -29,7 +29,7 @@ const App = () => {
     return (
         <div className='container-fluid movie-app'>
             <div className='row dd-flex align-items-center mt-4 mb-4'>
-                <MovieListHeading heading='Movies' />
+                {/* <MovieListHeading heading='Movies' /> */}
                 <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
             </div>
             <div className="row">
