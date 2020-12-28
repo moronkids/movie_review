@@ -11,33 +11,32 @@ const axios = defaultAxios.create({
 
 export const getByCategory = async (data) => {
   console.log("masuk get api movie");
-  let page = data.page
+  let page = data.page;
   let response = {};
   const todos = await axios
-    .post("movie/getMovieCategory/"+page, {genre: data.genre})
+    .post("movie/getMovieCategory/" + page, { genre: data.genre })
     .catch(function (error) {
-         if(error.response.status !== 200) {
-          response = {
-            result: "failed",
-            data: null,
-          };
-         }
+      if (error.response.status !== 200) {
+        response = {
+          result: "failed",
+          data: null,
+        };
+      }
     });
-  if(response.result === "failed") {
-    return response
-  }
-  else {
+  if (response.result === "failed") {
+    return response;
+  } else {
     response = {
       result: "success",
       data: [...todos.data.message],
     };
-    console.log(response,todos, "cek response movie")
+    console.log(response, todos, "cek response movie");
     return response;
   }
 };
 export const getById = async (data) => {
   console.log("masuk get api movie", data);
-  const id = data
+  const id = data;
   let response = {};
   const todos = await axios
     .get("movie/getMovieById/" + id)
@@ -49,15 +48,41 @@ export const getById = async (data) => {
         };
       }
     });
-  if(response.result === "failed") {
-    return response
-  }
-  else {
+  if (response.result === "failed") {
+    return response;
+  } else {
     response = {
       result: "success",
       data: [...todos.data.message],
     };
-    console.log(response,todos, "cek response movie")
+    console.log(response, todos, "cek response movie");
+    return response;
+  }
+};
+export const getByQuery = async (data) => {
+  console.log("masuk get api movie cari", data);
+  let page = data.page;
+  let response = {};
+  const todos = await axios
+    .post("/movie/search/" + page, {query : data.query})
+    .catch(function (error) {
+      if (error.response.status !== 200) {
+        response = {
+          result: "failed",
+          data: null,
+          query: data.query,
+        };
+      }
+    });
+  if (response.result === "failed") {
+    return response;
+  } else {
+    console.log(response, todos, "astajim");
+    response = {
+      result: "success",
+      data: [...todos.data.message],
+      query : data.query
+    };
     return response;
   }
 };

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import './asssets/search.css';
 import MovieList from './MovieList'
 import MovieListHeading from "./MovieListHeading";
-import SearchBox from '../Layout/search'
+import SearchBox from './searchBox'
 import AddFavourites from "./AddToFavorites"
 
 const App = () => {

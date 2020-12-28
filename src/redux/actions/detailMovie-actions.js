@@ -7,4 +7,7 @@ export const MOVIE_CATEGORY = "MOVIE_CATEGORY";
 export const PUT_MOVIE_CATEGORY = "PUT_MOVIE_CATEGORY";
 export const MOVIE_ID = "MOVIE_ID";
 export const PUT_MOVIE_ID = "PUT_MOVIE_ID";
+export const MOVIE_SEARCH = "MOVIE_SEARCH"
+export const PUT_MOVIE_SEARCH = "PUT_MOVIE_SEARCH";
+export const REMOVE_MOVIE_SEARCH = "REMOVE_MOVIE_SEARCH";
 

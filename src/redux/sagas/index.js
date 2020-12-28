@@ -18,11 +18,14 @@ import {
   SET_LOADING_ID,
   PUT_MOVIE_CATEGORY,
   MOVIE_CATEGORY,
+  PUT_MOVIE_SEARCH,
+  MOVIE_SEARCH,
+  REMOVE_MOVIE_SEARCH
 } from "redux/actions/detailMovie-actions";
 
 // Import all api's
 import { signIn, signUp} from "redux/api/auth-api";
-import { getByCategory, getById } from "redux/api/movie-api";
+import { getByCategory, getById, getByQuery } from "redux/api/movie-api";
 
 // Here's the unique part, generator function*, function with asterisk(*)
 
@@ -42,6 +45,11 @@ function* getIdMovie({ payload }) {
   yield put({ type: SET_LOADING_ID });
   yield put({ type: PUT_DETAIL_MOVIE, payload: payload });
 }
+function* removeQuery({ payload }) {
+    yield put({ type: SET_LOADING_ID });
+  yield put({ type: REMOVE_MOVIE_SEARCH });
+
+}
 function* getMovieByCategory({ payload }) {
   yield put({ type: SET_LOADING_ID });
    const todos = yield call(getByCategory, payload);
@@ -52,6 +60,13 @@ function* getMovieById({ payload }) {
   yield put({ type: SET_LOADING_ID });
    const todos = yield call(getById, payload);
   yield put({ type: PUT_MOVIE_ID, payload: todos });
+}
+function* getMovieByQuery({ payload }) {
+  console.log("sagas query cuyy", payload)
+  yield put({ type: SET_LOADING_ID });
+   const todos = yield call(getByQuery, payload);
+  yield put({ type: PUT_MOVIE_SEARCH, payload: todos });
+
 }
 function* signOut() {
   yield put({ type: SET_LOADING });
@@ -101,8 +116,7 @@ export default function* todoSaga() {
   yield takeLatest(DETAIL_MOVIE, getIdMovie); //ambil api dari firebase
   yield takeEvery(MOVIE_CATEGORY, getMovieByCategory); //ambil api dari firebase
   yield takeEvery(MOVIE_ID, getMovieById); //ambil api dari firebase
-  // yield takeEvery(GET_TODOS_REQUESTED, getTodos); //ambil api dari firebase
-  // yield takeEvery(SET_TODO_TITLE_REQUESTED, setTodoTitle);
-  // yield takeLatest(CREATE_TODO_REQUESTED, createTodo);
-  // yield takeEvery(DELETE_TODO_REQUESTED, deleteTodo);
+  yield takeEvery(MOVIE_SEARCH, getMovieByQuery); //ambil api dari firebase
+  yield takeLatest(REMOVE_MOVIE_SEARCH, removeQuery); //ambil api dari firebase
+
 }

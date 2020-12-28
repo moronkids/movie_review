@@ -5,6 +5,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { useLocation } from "react-router-dom";
+
 import {
   TabContent,
   TabPane,
@@ -26,8 +28,11 @@ import {
   DETAIL_MOVIE,
   MOVIE_CATEGORY,
 } from "redux/actions/detailMovie-actions";
-const Cardx = ({ getIdMovie, getMovieByCategory, data, loading }) => {
+const Cardx = ({ getIdMovie, getMovieByCategory, query,data, loading }) => {
   AOS.init();
+  const location = useLocation();
+  let loc = location.pathname.split("/");
+  console.log(loc, "lokasi")
   const { activeTab, setActiveTab, toggle } = useContext(darkMode);
   console.log(activeTab, "akitp");
   const valueCategory = [
@@ -71,14 +76,16 @@ const Cardx = ({ getIdMovie, getMovieByCategory, data, loading }) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
     // console.log("just once")
-    getMovieByCategory({
-      genre: "comedy",
-      page: 1,
-    });
+    if (query === "") {
+      getMovieByCategory({
+        genre: "comedy",
+        page: 1,
+      });
+    }
 
     //   setPell(activeTab);
-  }, [getMovieByCategory]);
-  console.log(pell, activeTab, "banding");
+  }, [query]);
+  console.log(data, "banding");
   let z = 300;
   const Loopx = data.map((val, i) => {
     if (i !== 0 && z <= 1500) {
@@ -154,6 +161,7 @@ const mapStateToProps = (state) => {
   return {
     data: state.movie.data.data,
     loading: state.movie.loading,
+    query: state.movie.query,
   };
 };
 

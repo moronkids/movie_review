@@ -4,7 +4,9 @@ import {
   DETAIL_MOVIE,
   PUT_DETAIL_MOVIE,
   PUT_MOVIE_CATEGORY,
-  PUT_MOVIE_ID
+  PUT_MOVIE_ID,
+  PUT_MOVIE_SEARCH,
+  REMOVE_MOVIE_SEARCH,
 } from "redux/actions/detailMovie-actions";
 
 // Define your state here
@@ -13,7 +15,8 @@ const initialState = {
   id: null,
   data: {
     data : []
-  }
+  },
+  query: ""
 };
 
 // This export default will control your state for your application
@@ -25,6 +28,7 @@ export default (state = initialState, { type, payload }) => {
       return {
         ...state,
         loading: true,
+
       };
     // Get todos
     case PUT_DETAIL_MOVIE:
@@ -32,18 +36,36 @@ export default (state = initialState, { type, payload }) => {
         ...state, //spread operator copy all data fromn inital state
         id: payload,
         loading: false,
+        query: "",
       };
     case PUT_MOVIE_CATEGORY:
       return {
         ...state, //spread operator copy all data fromn inital state
         data: payload,
         loading: false,
+        query: "",
       };
     case PUT_MOVIE_ID:
       return {
         ...state, //spread operator copy all data fromn inital state
         data: payload,
         loading: false,
+        query: "",
+      };
+    case PUT_MOVIE_SEARCH:
+      // const datax = payload.data
+      return {
+        ...state, //spread operator copy all data fromn inital state
+        // data: payload,
+        loading: false,
+        data : payload,
+        query: payload.query
+      };
+    case REMOVE_MOVIE_SEARCH:
+      return {
+        ...state, //spread operator copy all data fromn inital state
+        query: "",
+        loading: false
       };
     default:
       return state;

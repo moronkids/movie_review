@@ -7,10 +7,11 @@ import Category from "components/Homepage/category";
 import { darkMode } from "provider/darkmode";
 import { Overviewx } from "data_dummy/overview";
 import { connect } from 'react-redux';
+import Card from "components/Homepage/card";
 import {
   MOVIE_ID
 } from "redux/actions/detailMovie-actions";
-const Index = ({props, getMovieById, id, data, loading}) => {
+const Index = ({props, getMovieById, id, data, loading, query}) => {
     console.log(props,data, "bedah")
     const {path, setPath} = useContext(darkMode)
     console.log(path, "ini context")
@@ -33,19 +34,29 @@ const Index = ({props, getMovieById, id, data, loading}) => {
     ];
     useEffect(() => {
       console.log("sekali")
-      getMovieById(id)
-    }, []);
+      if(query === "") {
+        getMovieById(id);
+      }
+    }, [query]);
     return (
-      <div>
-        <Banner dummy={data} />
-        <Category
-          // location={props.location.pathname}
-          valueProps={valueCategory}
-        />
-        {path === "overview" ? <Overview dummy={data} /> : null}
-        {path === "characters" ? <Character dummy={data}></Character> : null}
-        {path === "reviews" ? <Review dummy={data}></Review> : null}
-      </div>
+      <>
+        {query !== "" ? (
+          <Card />
+        ) : (
+          <>
+            <Banner dummy={data} />
+            <Category
+              // location={props.location.pathname}
+              valueProps={valueCategory}
+            />
+            {path === "overview" ? <Overview dummy={data} /> : null}
+            {path === "characters" ? (
+              <Character dummy={data}></Character>
+            ) : null}
+            {path === "reviews" ? <Review dummy={data}></Review> : null}
+          </>
+        )}
+      </>
     );
 };
 const mapStateToProps = (state) => {
@@ -53,7 +64,9 @@ const mapStateToProps = (state) => {
   return {
     id : state.movie.id,
     loading : state.movie.loading,
-    data: state.movie.data
+    data: state.movie.data,
+    // searchResult : state.movie.data,
+    query: state.movie.query
   }
 }
 
