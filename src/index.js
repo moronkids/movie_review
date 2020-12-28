@@ -4,16 +4,20 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import DarkMode from "provider/darkmode";
-import store from "redux/store";
+import {store, persistor} from "redux/store";
 import { Provider } from "react-redux";
+import {PersistGate} from "redux-persist/integration/react"
 import Overlays from "components/Layout"
 ReactDOM.render(
   <React.Fragment>
     {/* <React.StrictMode> */}
     <Provider store={store}>
+      <PersistGate persistor={persistor}>
+
       <DarkMode>
         <App />
       </DarkMode>
+      </PersistGate>
     </Provider>
 
   </React.Fragment>,

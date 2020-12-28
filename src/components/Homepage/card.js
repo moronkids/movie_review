@@ -5,6 +5,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { useLocation } from "react-router-dom";
+
 import {
   TabContent,
   TabPane,
@@ -22,10 +24,16 @@ import classnames from "classnames";
 import Styled from "styled-components";
 import { darkMode } from "provider/darkmode";
 import { act } from "@testing-library/react";
-import { DETAIL_MOVIE, MOVIE_CATEGORY } from "redux/actions/detailMovie-actions";
-const Cardx = ({ getIdMovie, getMovieByCategory, data, loading }) => {
+import {
+  DETAIL_MOVIE,
+  MOVIE_CATEGORY,
+} from "redux/actions/detailMovie-actions";
+const Cardx = ({ getIdMovie, getMovieByCategory, query,data, loading }) => {
   AOS.init();
-  const { activeTab, setActiveTab, toggle } = useContext(darkMode);
+  const location = useLocation();
+  let loc = location.pathname.split("/");
+  console.log(loc, "lokasi")
+  const { activeTab, setActiveTab, toggle, activeCategory } = useContext(darkMode);
   console.log(activeTab, "akitp");
   const valueCategory = [
     {
@@ -61,21 +69,35 @@ const Cardx = ({ getIdMovie, getMovieByCategory, data, loading }) => {
   ];
   const [pell, setPell] = useState("1");
   const [delay, setDelay] = useState(2000);
+  const [result, setResult] = useState("");
   const intoDetail = (e) => {
     console.log(e, "ini id");
     getIdMovie(e);
   };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect( async () => {
-    // console.log("just once")
+  console.log(query,"just once")
+  useEffect(async () => {
+    if (query === "" && activeCategory === "All") {
       getMovieByCategory({
-        genre: "comedy",
+        genre: "all",
         page: 1,
       });
+    }
+    else {
+      getMovieByCategory({
+        genre: activeCategory,
+        page: 1,
+      });
+    }
+  if (data.length === 0) {
+    setResult("Sorry Data Not Found");
+  }else {
+    setResult("")
+  }
+    // setPell(activeTab);
+  }, [query, activeCategory, data]);
+  console.log(data, "banding");
 
-  //   setPell(activeTab);
-  }, [getMovieByCategory]);
-  console.log(pell, activeTab, "banding");
   let z = 300;
   const Loopx = data.map((val, i) => {
     if (i !== 0 && z <= 1500) {
@@ -91,7 +113,7 @@ const Cardx = ({ getIdMovie, getMovieByCategory, data, loading }) => {
           <Link
             onClick={() => intoDetail(val._id)}
             to={"/detail_movie/" + val._id}
-            className=""
+            className="text-inherit"
           >
             {/* <Slide bottom duration={z}> */}
             <img
@@ -101,10 +123,22 @@ const Cardx = ({ getIdMovie, getMovieByCategory, data, loading }) => {
               data-aos-delay={(300 + z).toString()}
               data-aos-duration={(300 + z).toString()}
             />
-            <p style={({ color: "white" }, { fontSize: "20px" })}>
-              {val.Movie}
+            <b>
+              <p
+                className="text-break m-0 text pt-2"
+                style={
+                  ({ color: "white" }, { fontSize: "20px" }, { width: "8rem" })
+                }
+              >
+                {val.Movie}
+              </p>
+            </b>
+            <p
+              className="text-break text"
+              style={({ marginTop: "-25px" }, { width: "8rem" })}
+            >
+              {val.Genre}
             </p>
-            <p style={{ marginTop: "-25px" }}>{val.Genre}</p>
           </Link>
         </div>
       </>
@@ -116,9 +150,12 @@ const Cardx = ({ getIdMovie, getMovieByCategory, data, loading }) => {
       {console.log(pell, activeTab, "active tab")}
       <TabContent activeTab={pell}>
         <TabPane tabId="1">
-          <div className="d-flex flex-wrap mx-auto">{Loopx}</div>
+          <div className="d-flex flex-wrap mx-auto">
+            {Loopx}
+            <h1 className="mx-auto">{result}</h1>
+          </div>
         </TabPane>
-        <TabPane tabId="2">
+        {/* <TabPane tabId="2">
           <div className="d-flex flex-wrap mx-auto">"2"</div>
         </TabPane>
         <TabPane tabId="3">
@@ -129,7 +166,7 @@ const Cardx = ({ getIdMovie, getMovieByCategory, data, loading }) => {
         </TabPane>
         <TabPane tabId="5">
           <div className="d-flex flex-wrap mx-auto">"5"</div>
-        </TabPane>
+        </TabPane> */}
       </TabContent>
     </>
   );
@@ -139,11 +176,13 @@ const mapStateToProps = (state) => {
   return {
     data: state.movie.data.data,
     loading: state.movie.loading,
+    query: state.movie.query,
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
   getIdMovie: (data) => dispatch({ type: DETAIL_MOVIE, payload: data }),
-  getMovieByCategory: (data) => dispatch({ type: MOVIE_CATEGORY, payload: data }),
+  getMovieByCategory: (data) =>
+    dispatch({ type: MOVIE_CATEGORY, payload: data }),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Cardx);
