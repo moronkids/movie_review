@@ -4,6 +4,7 @@ import {
   DETAIL_MOVIE,
   PUT_DETAIL_MOVIE,
   PUT_MOVIE_CATEGORY,
+  PUT_MOVIE_ID
 } from "redux/actions/detailMovie-actions";
 
 // Define your state here
@@ -33,6 +34,12 @@ export default (state = initialState, { type, payload }) => {
         loading: false,
       };
     case PUT_MOVIE_CATEGORY:
+      return {
+        ...state, //spread operator copy all data fromn inital state
+        data: payload,
+        loading: false,
+      };
+    case PUT_MOVIE_ID:
       return {
         ...state, //spread operator copy all data fromn inital state
         data: payload,

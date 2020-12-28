@@ -12,9 +12,7 @@ const main = (props) => {
           <hr />
         </div>
       </div>
-      <div className="">
-        {props.dummy.sinposis}
-      </div>
+      <div className="">{props.dummy.data[0].Sinopsis}</div>
       <div className="d-flex">
         <div className="pl-0 pr-1 col-auto my-auto text-sub-overview">
           Movie Info
@@ -28,15 +26,14 @@ const main = (props) => {
           <td>
             <tr className="">Release Date</tr>
             <tr className="">Director</tr>
-            <tr className="">Featured Song</tr>
-            <tr className="">Budget</tr>
-
+            <tr className="">Writer</tr>
+            <tr className="">Duration</tr>
           </td>
           <td>
-            <tr className="">: {props.dummy.movie_info.release_data}</tr>
-            <tr className="">: {props.dummy.movie_info.director}</tr>
-            <tr className="">: {props.dummy.movie_info.featured_song}</tr>
-            <tr className="">: {props.dummy.movie_info.budget}</tr>
+            <tr className="">: {props.dummy.data[0].release}</tr>
+            <tr className="">: {props.dummy.data[0].Director}</tr>
+            <tr className="">: {props.dummy.data[0].Writer}</tr>
+            <tr className="">: {props.dummy.data[0].Duration}</tr>
           </td>
         </table>
       </div>

@@ -14,7 +14,7 @@ import LoadMore from "components/Review/loadMore";
 
 import "./assets/App.css"
 
-function App() {
+function App(props) {
   const [notes, setNotes] = useState([]);
 
   function addNote(newNote) {
@@ -48,7 +48,7 @@ function App() {
         );
       })}
     </div>
-    <Komentar />
+    <Komentar dummy={props.dummy}/>
     <LoadMore />
     </>
   );

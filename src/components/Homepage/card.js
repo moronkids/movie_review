@@ -22,7 +22,10 @@ import classnames from "classnames";
 import Styled from "styled-components";
 import { darkMode } from "provider/darkmode";
 import { act } from "@testing-library/react";
-import { DETAIL_MOVIE, MOVIE_CATEGORY } from "redux/actions/detailMovie-actions";
+import {
+  DETAIL_MOVIE,
+  MOVIE_CATEGORY,
+} from "redux/actions/detailMovie-actions";
 const Cardx = ({ getIdMovie, getMovieByCategory, data, loading }) => {
   AOS.init();
   const { activeTab, setActiveTab, toggle } = useContext(darkMode);
@@ -66,14 +69,14 @@ const Cardx = ({ getIdMovie, getMovieByCategory, data, loading }) => {
     getIdMovie(e);
   };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect( async () => {
+  useEffect(async () => {
     // console.log("just once")
-      getMovieByCategory({
-        genre: "comedy",
-        page: 1,
-      });
+    getMovieByCategory({
+      genre: "comedy",
+      page: 1,
+    });
 
-  //   setPell(activeTab);
+    //   setPell(activeTab);
   }, [getMovieByCategory]);
   console.log(pell, activeTab, "banding");
   let z = 300;
@@ -91,7 +94,7 @@ const Cardx = ({ getIdMovie, getMovieByCategory, data, loading }) => {
           <Link
             onClick={() => intoDetail(val._id)}
             to={"/detail_movie/" + val._id}
-            className=""
+            className="text-inherit"
           >
             {/* <Slide bottom duration={z}> */}
             <img
@@ -101,10 +104,22 @@ const Cardx = ({ getIdMovie, getMovieByCategory, data, loading }) => {
               data-aos-delay={(300 + z).toString()}
               data-aos-duration={(300 + z).toString()}
             />
-            <p style={({ color: "white" }, { fontSize: "20px" })}>
-              {val.Movie}
+            <b>
+              <p
+                className="text-break m-0 text pt-2"
+                style={
+                  ({ color: "white" }, { fontSize: "20px" }, { width: "8rem" })
+                }
+              >
+                {val.Movie}
+              </p>
+            </b>
+            <p
+              className="text-break text"
+              style={({ marginTop: "-25px" }, { width: "8rem" })}
+            >
+              {val.Genre}
             </p>
-            <p style={{ marginTop: "-25px" }}>{val.Genre}</p>
           </Link>
         </div>
       </>
@@ -144,6 +159,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   getIdMovie: (data) => dispatch({ type: DETAIL_MOVIE, payload: data }),
-  getMovieByCategory: (data) => dispatch({ type: MOVIE_CATEGORY, payload: data }),
+  getMovieByCategory: (data) =>
+    dispatch({ type: MOVIE_CATEGORY, payload: data }),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Cardx);

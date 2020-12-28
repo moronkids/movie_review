@@ -35,3 +35,29 @@ export const getByCategory = async (data) => {
     return response;
   }
 };
+export const getById = async (data) => {
+  console.log("masuk get api movie", data);
+  const id = data
+  let response = {};
+  const todos = await axios
+    .get("movie/getMovieById/" + id)
+    .catch(function (error) {
+      if (error.response.status !== 200) {
+        response = {
+          result: "failed",
+          data: null,
+        };
+      }
+    });
+  if(response.result === "failed") {
+    return response
+  }
+  else {
+    response = {
+      result: "success",
+      data: [...todos.data.message],
+    };
+    console.log(response,todos, "cek response movie")
+    return response;
+  }
+};
