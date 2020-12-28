@@ -2,7 +2,7 @@ import defaultAxios from "axios";
 const axios = defaultAxios.create({
   baseURL: "http://13.212.6.137:3000/", //firebaseku
   headers: {
-    "Access-Control-Allow-Origin": "http://127.0.0.1:3000",
+    // "Access-Control-Allow-Origin": "http://127.0.0.1:3000",
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
   },
   withCredentials: false,
