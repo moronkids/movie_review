@@ -44,18 +44,20 @@ const ModalExample = ({ todos, loading, signUpFunc, falseLogged, logged }) => {
 
     }
   };
-
+  console.log(count, "diawal");
   useEffect(() => {
+    console.log(count, "hitungcount")
     if (todos.todos.logged) {
       // toggleModalSignUp(false);
       count > 0 && setTimeout(() => setCount(count - 1), 1000);
 
     }
     if(count === 0) {
+      console.log("masuksini ga?")
       toggleAll();
       falseLogged();
     }
-  }, [count]);
+  }, [count,logged]);
 
   return (
     <div>

@@ -71,10 +71,12 @@ const ModalExample = ({
   console.log(emailx, passwordx, "cek aja");
   useEffect(() => {
     if (todos.todos.logged) {
+      console.log("apa masuk sini?")
       falseLogged();
-      // toggleAll()
+      toggleAll();
+      // toggleModal()
     }
-  }, [falseLogged, loading, todos.todos.logged, toggleModal]);
+  }, []);
 
   return (
     <div>

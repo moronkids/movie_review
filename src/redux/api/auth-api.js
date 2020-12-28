@@ -7,7 +7,7 @@ const axios = defaultAxios.create({
   baseURL: "http://13.212.6.137:3000/", //firebaseku
   // headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
   headers: {
-    "Access-Control-Allow-Origin": "http://127.0.0.1:3000",
+    // "Access-Control-Allow-Origin": "http://127.0.0.1:3000",
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
   },
   withCredentials: false,
