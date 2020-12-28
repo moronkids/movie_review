@@ -33,7 +33,7 @@ const Cardx = ({ getIdMovie, getMovieByCategory, query,data, loading }) => {
   const location = useLocation();
   let loc = location.pathname.split("/");
   console.log(loc, "lokasi")
-  const { activeTab, setActiveTab, toggle } = useContext(darkMode);
+  const { activeTab, setActiveTab, toggle, activeCategory } = useContext(darkMode);
   console.log(activeTab, "akitp");
   const valueCategory = [
     {
@@ -69,6 +69,7 @@ const Cardx = ({ getIdMovie, getMovieByCategory, query,data, loading }) => {
   ];
   const [pell, setPell] = useState("1");
   const [delay, setDelay] = useState(2000);
+  const [result, setResult] = useState("");
   const intoDetail = (e) => {
     console.log(e, "ini id");
     getIdMovie(e);
@@ -76,16 +77,27 @@ const Cardx = ({ getIdMovie, getMovieByCategory, query,data, loading }) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   console.log(query,"just once")
   useEffect(async () => {
-    if (query === "") {
+    if (query === "" && activeCategory === "All") {
       getMovieByCategory({
-        genre: "comedy",
+        genre: "all",
         page: 1,
       });
     }
-
-    //   setPell(activeTab);
-  }, [query]);
+    else {
+      getMovieByCategory({
+        genre: activeCategory,
+        page: 1,
+      });
+    }
+  if (data.length === 0) {
+    setResult("Sorry Data Not Found");
+  }else {
+    setResult("")
+  }
+    // setPell(activeTab);
+  }, [query, activeCategory, data]);
   console.log(data, "banding");
+
   let z = 300;
   const Loopx = data.map((val, i) => {
     if (i !== 0 && z <= 1500) {
@@ -138,9 +150,12 @@ const Cardx = ({ getIdMovie, getMovieByCategory, query,data, loading }) => {
       {console.log(pell, activeTab, "active tab")}
       <TabContent activeTab={pell}>
         <TabPane tabId="1">
-          <div className="d-flex flex-wrap mx-auto">{Loopx}</div>
+          <div className="d-flex flex-wrap mx-auto">
+            {Loopx}
+            <h1 className="mx-auto">{result}</h1>
+          </div>
         </TabPane>
-        <TabPane tabId="2">
+        {/* <TabPane tabId="2">
           <div className="d-flex flex-wrap mx-auto">"2"</div>
         </TabPane>
         <TabPane tabId="3">
@@ -151,7 +166,7 @@ const Cardx = ({ getIdMovie, getMovieByCategory, query,data, loading }) => {
         </TabPane>
         <TabPane tabId="5">
           <div className="d-flex flex-wrap mx-auto">"5"</div>
-        </TabPane>
+        </TabPane> */}
       </TabContent>
     </>
   );

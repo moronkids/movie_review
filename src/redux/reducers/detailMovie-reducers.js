@@ -7,6 +7,7 @@ import {
   PUT_MOVIE_ID,
   PUT_MOVIE_SEARCH,
   REMOVE_MOVIE_SEARCH,
+  MOVIE_CATEGORY_DATA,
 } from "redux/actions/detailMovie-actions";
 
 // Define your state here
@@ -16,7 +17,8 @@ const initialState = {
   data: {
     data : []
   },
-  query: ""
+  query: "",
+  category: []
 };
 
 // This export default will control your state for your application
@@ -28,7 +30,12 @@ export default (state = initialState, { type, payload }) => {
       return {
         ...state,
         loading: true,
-
+      };
+    case MOVIE_CATEGORY_DATA:
+      return {
+        ...state,
+        category: payload.data,
+        loading: false,
       };
     // Get todos
     case PUT_DETAIL_MOVIE:
@@ -39,12 +46,22 @@ export default (state = initialState, { type, payload }) => {
         query: "",
       };
     case PUT_MOVIE_CATEGORY:
-      return {
-        ...state, //spread operator copy all data fromn inital state
-        data: payload,
-        loading: false,
-        query: "",
-      };
+      console.log(payload, PUT_MOVIE_CATEGORY);
+      if(payload.data.length > 0) {
+        return {
+          ...state, //spread operator copy all data fromn inital state
+          data: payload,
+          loading: false,
+          // query: "",
+        };
+      }
+      else {
+        return {
+          ...state, //spread operator copy all data fromn inital state
+          loading: false,
+          // query: "",
+        };
+      }
     case PUT_MOVIE_ID:
       return {
         ...state, //spread operator copy all data fromn inital state
@@ -58,14 +75,14 @@ export default (state = initialState, { type, payload }) => {
         ...state, //spread operator copy all data fromn inital state
         // data: payload,
         loading: false,
-        data : payload,
-        query: payload.query
+        data: payload,
+        query: payload.query,
       };
     case REMOVE_MOVIE_SEARCH:
       return {
         ...state, //spread operator copy all data fromn inital state
         query: "",
-        loading: false
+        loading: false,
       };
     default:
       return state;

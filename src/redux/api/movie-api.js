@@ -11,21 +11,38 @@ const axios = defaultAxios.create({
 
 export const getByCategory = async (data) => {
   console.log("masuk get api movie");
-  let page = data.page;
   let response = {};
-  const todos = await axios
-    .get("movie/getAllMovie/" + page)
-    .catch(function (error) {
-      if (error.response.status !== 200) {
-        console.log(error.response, "ini error")
-        response = {
-          result: "failed",
-          data: [],
-        };
-      }
-    });
+  let todos;
+  if (data.genre === "all") {
+    let page = data.page;
+     todos = await axios
+      .get("movie/getAllMovie/" + page)
+      .catch(function (error) {
+        if (error.response.status !== 200) {
+          console.log(error.response, "ini error");
+          response = {
+            result: "failed",
+            data: [],
+          };
+        }
+      });
+  }
+  else {
+    let page = data.page;
+     todos = await axios
+      .post("movie/getMovieCategory/" + page, {genre : data.genre})
+      .catch(function (error) {
+        if (error.response.status !== 200) {
+          console.log(error.response, "ini error");
+          response = {
+            result: "failed",
+            data: [],
+          };
+        }
+      });
+  }
   if (response.result === "failed") {
-    console.log(response, "gagal")
+    console.log(response, "gagal");
     return response;
   } else {
     response = {
@@ -33,6 +50,32 @@ export const getByCategory = async (data) => {
       data: [...todos.data.message],
     };
     console.log(response, todos, "cek response movie");
+    return response;
+  }
+};
+export const getAllCategory = async (data) => {
+  console.log("masuk get api movie");
+  let response = {};
+  const todos = await axios
+    .get("movie/getAllCategory/")
+    .catch(function (error) {
+      if (error.response.status !== 200) {
+        console.log(error.response, "ini error");
+        response = {
+          result: "failed",
+          data: [],
+        };
+      }
+    });
+  if (response.result === "failed") {
+    console.log(response, "gagal");
+    return response;
+  } else {
+    console.log(response, todos, "cek response movie");
+    response = {
+      result: "success",
+      data: [...todos.data.message.Category],
+    };
     return response;
   }
 };
@@ -66,7 +109,7 @@ export const getByQuery = async (data) => {
   let page = data.page;
   let response = {};
   const todos = await axios
-    .post("/movie/search/" + page, {query : data.query})
+    .post("/movie/search/" + page, { query: data.query })
     .catch(function (error) {
       if (error.response.status !== 200) {
         response = {
@@ -83,7 +126,7 @@ export const getByQuery = async (data) => {
     response = {
       result: "success",
       data: [...todos.data.message],
-      query : data.query
+      query: data.query,
     };
     return response;
   }

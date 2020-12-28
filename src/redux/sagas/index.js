@@ -13,19 +13,26 @@ import {
 } from "redux/actions/auth-actions";
 import {
   MOVIE_ID,
-  PUT_MOVIE_ID,PUT_DETAIL_MOVIE,
+  PUT_MOVIE_ID,
+  PUT_DETAIL_MOVIE,
   DETAIL_MOVIE,
   SET_LOADING_ID,
   PUT_MOVIE_CATEGORY,
   MOVIE_CATEGORY,
   PUT_MOVIE_SEARCH,
   MOVIE_SEARCH,
-  REMOVE_MOVIE_SEARCH
+  REMOVE_MOVIE_SEARCH,
+  MOVIE_CATEGORY_DATA,
 } from "redux/actions/detailMovie-actions";
 
 // Import all api's
 import { signIn, signUp} from "redux/api/auth-api";
-import { getByCategory, getById, getByQuery } from "redux/api/movie-api";
+import {
+  getByCategory,
+  getById,
+  getByQuery,
+  getAllCategory,
+} from "redux/api/movie-api";
 
 // Here's the unique part, generator function*, function with asterisk(*)
 
@@ -52,7 +59,9 @@ function* removeQuery({ payload }) {
 }
 function* getMovieByCategory({ payload }) {
   yield put({ type: SET_LOADING_ID });
-   const todos = yield call(getByCategory, payload);
+  const all = yield call(getAllCategory, payload);
+  yield put({ type: MOVIE_CATEGORY_DATA , payload:all});
+  const todos = yield call(getByCategory, payload);
   yield put({ type: PUT_MOVIE_CATEGORY, payload: todos });
 }
 function* getMovieById({ payload }) {
