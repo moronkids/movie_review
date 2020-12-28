@@ -11,3 +11,9 @@ export const SET_LOADING = "SET_LOADING";
 
 export const SIGN_IN = "SIGN_IN"
 export const PUT_SIGN_IN = "PUT_SIGN_IN"
+export const SIGN_OUT = "SIGN_OUT";
+export const PUT_SIGN_OUT = "PUT_SIGN_OUT";
+export const SIGN_UP = "SIGN_UP";
+export const PUT_SIGN_UP = "PUT_SIGN_UP";
+export const UPDATE_STATUS = "UPDATE_STATUS";
+export const MODAL_SIGN_IN = "MODAL_SIGN_IN"
