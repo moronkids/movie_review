@@ -27,7 +27,8 @@ class Rating extends React.Component {
           />
         </div>
         <div className=" h-auto ">
-          <h2 className="teks-body">Rating from state: {rating}</h2>
+          <h2 className="teks-body">User</h2>
+          <p className="teks-body">Rating from state: {rating}</p>
           <div style={{ fontSize: "35px" }}>
             <StarRatingComponent
               name="rate1"

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { darkMode } from "provider/darkmode";
+import {connect} from "react-redux"
 import {
   TabContent,
   TabPane,
@@ -14,9 +15,9 @@ import {
   Col,
 } from "reactstrap";
 import classnames from "classnames";
-const Category = (props) => {
+const Category = ({props, categoryMap}) => {
   // console.log()
-  const { path, setPath, setActiveTab, activeTab, togglex } = useContext(darkMode);
+  const { path, setPath, setActiveTab, activeTab, togglex, activeCategory, setActiveCategory, handleCategory } = useContext(darkMode);
   console.log(props, path, "tes");
   const [toggle, setToggle] = useState(0);
   const [location, setLocation] = useState(props.location);
@@ -34,17 +35,18 @@ const Category = (props) => {
       setLocation("/review");
       setPath("reviews");
     }
-    console.log("masuk", e, location);
+    console.log("masuk", props);
   };
+
   const classn = "list-category my-auto";
   let cat;
   if (props.detect === "homepage") {
-    cat = props.valueProps.map((val, i) => {
+    cat = categoryMap.map((val, i) => {
       console.log(toggle, location, val.id, "su");
       const mix = `${val.spacing} ${classn}`;
       return (
         <NavLink
-          onClick={() => setActiveTab(val.id.toString())}
+          onClick={() => {setActiveTab(categoryMap.indexOf(val).toString()); handleCategory(val); }}
           className={classnames({ active: activeTab === val.id })}
         >
           <span
@@ -58,7 +60,7 @@ const Category = (props) => {
               // togglex(val.id);
             }}
           >
-            {val.name}
+            {val}
           </span>
         </NavLink>
       );
@@ -89,4 +91,11 @@ const Category = (props) => {
   );
 };
 
-export default Category;
+const mapStateToProps = (state, props) => {
+  return {
+    categoryMap : state.movie.category,
+    props: props
+  }
+}
+
+export default connect(mapStateToProps)(Category);

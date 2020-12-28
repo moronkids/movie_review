@@ -1,9 +1,9 @@
 import React from 'react';
 import Reviewx from "components/Review/index"
-const Review = () => {
+const Review = (props) => {
     return (
         <div>
-            <Reviewx></Reviewx>
+            <Reviewx dummy={props.dummy}></Reviewx>
         </div>
     );
 };

@@ -55,7 +55,7 @@ const ModalExample = ({ todos, loading, signUpFunc, falseLogged, logged }) => {
       toggleAll();
       falseLogged();
     }
-  }, [logged, count]);
+  }, [count]);
 
   return (
     <div>

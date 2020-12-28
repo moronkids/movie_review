@@ -15,6 +15,8 @@ import rootSaga from "redux/sagas/index";
 
 // This will be contain our reducer for the application
 import rootReducer from "redux/reducers/index";
+import { persistStore, persistReducer } from 'redux-persist' // imports from redux-persist
+import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -24,7 +26,9 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(sagaMiddleware))
 );
 
+const persistor = persistStore(store)
+
 // Run redux-saga
 sagaMiddleware.run(rootSaga);
 
-export default store;
+export  { store, persistor };
