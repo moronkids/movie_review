@@ -2,7 +2,7 @@ import defaultAxios from "axios";
 const axios = defaultAxios.create({
   baseURL: "http://13.212.6.137:3000/", //firebaseku
   headers: {
-    // "Access-Control-Allow-Origin": "http://127.0.0.1:3000",
+    "Access-Control-Allow-Origin": "http://127.0.0.1:3000",
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
   },
   withCredentials: false,
@@ -47,7 +47,7 @@ export const getByCategory = async (data) => {
   } else {
     response = {
       result: "success",
-      data: [...todos.data.message],
+      data: [...todos.data.message.result],
     };
     console.log(response, todos, "cek response movie");
     return response;
