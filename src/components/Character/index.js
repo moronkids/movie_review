@@ -8,7 +8,7 @@ const Overview = (props) => {
   console.log(props,"testx")
   return (
     <div>
-      <Character />
+      <Character passingData={props.dummy}/>
     </div>
   );
 };

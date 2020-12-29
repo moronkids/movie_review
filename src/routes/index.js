@@ -9,6 +9,7 @@ import Profile from "components/Profile/index";
 import {connect} from "react-redux"
 import SearchBox from "components/search/index"
 import SearchMain from "components/Layout/searchmain"
+import NotFound from "components/Layout/404"
 import "assets/scss/styles.scss";
 
 const Routesx = ({ id , query}) => {
@@ -56,7 +57,7 @@ const Routesx = ({ id , query}) => {
         />
         <AppRoute
           exact
-          path={"/detail_movie/"+id }
+          path={"/detail_movie/" + id}
           layout={_Guest}
           auth={Guest}
           component={Detail}
@@ -68,19 +69,26 @@ const Routesx = ({ id , query}) => {
           auth={Guest}
           component={Profile}
         />
-         <AppRoute
+        <AppRoute
           exact
           path="/search"
           layout={_Guest}
           auth={Guest}
           component={SearchBox}
         />
-         <AppRoute
+        <AppRoute
           exact
-          path={"/searchx/"+query}
+          path={"/searchx/" + query}
           layout={_Guest}
           auth={Guest}
           component={SearchMain}
+        />
+        <AppRoute
+          exact
+          path={"/*"}
+          layout={_Guest}
+          auth={Guest}
+          component={NotFound}
         />
       </Switch>
     </section>
