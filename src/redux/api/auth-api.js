@@ -7,8 +7,9 @@ const axios = defaultAxios.create({
   baseURL: "http://13.212.6.137:3000/", //firebaseku
   // headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
   headers: {
-    "Access-Control-Allow-Origin": "http://127.0.0.1:3000",
+    // "Access-Control-Allow-Origin": "http://127.0.0.1:3000",
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+    "Authorization": `Bearer ${localStorage.getItem("token")}`,
   },
   withCredentials: false,
   crossorigin: true,
@@ -46,7 +47,8 @@ export const signIn = async (data) => {
       datax = {
         result : "success",
         logged: true,
-        data: todos.data.token
+        data: todos.data.token,
+        user: todos.data.user
       }
       return datax;
     }
@@ -96,6 +98,54 @@ export const signUp = async (data) => {
       }
       console.log(bro, "datax ")
       return bro;
+    }
+};
+export const getReview = async () => {
+  console.log("my reviews")
+  let datax ={};
+    const todos = await axios
+      .get("user/getMyReview")
+      .catch(function (error) {
+        console.log(error, "tesx");
+        if (error.response.status !== 200) {
+          console.log(error.response, "wuu");
+          datax = {
+            result: "failed",
+            logged: false,
+          };
+        }
+      });
+    if(datax.result === "failed") {
+      console.log("jelb")
+      return datax
+    }
+    else {
+
+      console.log(todos, "datax ")
+      // return bro;
+    }
+};
+export const savedMovie = async () => {
+  console.log("my reviews")
+  let datax ={};
+    const todos = await axios.get("user/getWatchList").catch(function (error) {
+      console.log(error, "tesx");
+      if (error.response.status !== 200) {
+        console.log(error.response, "wuu");
+        datax = {
+          result: "failed",
+          logged: false,
+        };
+      }
+    });
+    if(datax.result === "failed") {
+      console.log("jelb")
+      return datax
+    }
+    else {
+
+      console.log(todos, "datax ")
+      // return bro;
     }
 };
 

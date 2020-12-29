@@ -5,6 +5,10 @@ import {
   PUT_SIGN_OUT,
   PUT_SIGN_UP,
   UPDATE_STATUS,
+  PUT_MY_REVIEW,
+  MY_REVIEW,
+    MY_MOVIE,
+  PUT_SAVED_MOVIE,
   // GET_TODOS,
   // SET_TODO_TITLE,
   // CREATE_TODO,
@@ -17,6 +21,7 @@ import {
 const initialState = {
   loading: false,
   todos: {},
+  user: {},
   // logged: false
   // modal: false
 };
@@ -42,6 +47,7 @@ export default (state = initialState, { type, payload }) => {
         ...state,
         todos: payload,
         loading: false,
+        user: payload.user
       };
     case PUT_SIGN_UP:
        console.log(payload, "ini payload");
@@ -52,6 +58,20 @@ export default (state = initialState, { type, payload }) => {
       };
     case PUT_SIGN_OUT:
       localStorage.removeItem("token")
+      return {
+        ...state,
+        todos: {},
+        loading: false,
+      };
+    case PUT_MY_REVIEW:
+
+      return {
+        ...state,
+        todos: {},
+        loading: false,
+      };
+    case PUT_SAVED_MOVIE:
+
       return {
         ...state,
         todos: {},

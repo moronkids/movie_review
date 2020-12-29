@@ -2,7 +2,7 @@ import defaultAxios from "axios";
 const axios = defaultAxios.create({
   baseURL: "http://13.212.6.137:3000/", //firebaseku
   headers: {
-    "Access-Control-Allow-Origin": "http://127.0.0.1:3000",
+    // "Access-Control-Allow-Origin": "http://127.0.0.1:3000",
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
   },
   withCredentials: false,
@@ -125,7 +125,7 @@ export const getByQuery = async (data) => {
     console.log(response, todos, "astajim");
     response = {
       result: "success",
-      data: [...todos.data.message],
+      data: [...todos.data.message.result],
       query: data.query,
     };
     return response;

@@ -4,15 +4,15 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 import { darkMode } from "provider/darkmode";
 import { SIGN_OUT } from "redux/actions/auth-actions";
+const Example = ({props, signOut, loading, photo}) => {
   const Imej = styled.div`
-    background-image: url("https://randomuser.me/api/portraits/women/40.jpg");
+    background-image: url(http://13.212.6.137:3000/${photo});
     border-radius: 50%;
     width: 45px;
     height: 45px;
     background-repeat: no-repeat;
     background-size: contain;
   `;
-const Example = ({props, signOut, loading}) => {
   const [isOpen, setIsOpen] = useState(false);
   const {
     theme,
@@ -61,6 +61,7 @@ const Example = ({props, signOut, loading}) => {
 const mapStateToProps = (state) => {
   return {
     loading: state.todo.loading,
+    photo: state.todo.user.profilePic
   };
 };
 

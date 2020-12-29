@@ -10,6 +10,10 @@ import {
   PUT_SIGN_OUT,
   SIGN_UP,
   PUT_SIGN_UP,
+  MY_REVIEW,
+  PUT_MY_REVIEW,
+  PUT_SAVED_MOVIE,
+  MY_MOVIE
 } from "redux/actions/auth-actions";
 import {
   MOVIE_ID,
@@ -26,7 +30,7 @@ import {
 } from "redux/actions/detailMovie-actions";
 
 // Import all api's
-import { signIn, signUp} from "redux/api/auth-api";
+import { signIn, signUp, getReview, savedMovie } from "redux/api/auth-api";
 import {
   getByCategory,
   getById,
@@ -42,6 +46,16 @@ function* signInFunc({payload}) {
   const todos = yield call(signIn, payload);
   yield put({ type: PUT_SIGN_IN, payload: todos });
 
+}
+function* myReview() {
+  yield put({ type: SET_LOADING });
+  yield call(getReview);
+  yield put({ type: PUT_MY_REVIEW});
+}
+function* myMovie() {
+  yield put({ type: SET_LOADING });
+  yield call(savedMovie);
+  yield put({ type: PUT_SAVED_MOVIE});
 }
 function* signUpFunc({ payload }) {
   yield put({ type: SET_LOADING });
@@ -75,7 +89,6 @@ function* getMovieByQuery({ payload }) {
   yield put({ type: SET_LOADING_ID });
    const todos = yield call(getByQuery, payload);
   yield put({ type: PUT_MOVIE_SEARCH, payload: todos });
-
 }
 function* signOut() {
   yield put({ type: SET_LOADING });
@@ -127,5 +140,7 @@ export default function* todoSaga() {
   yield takeEvery(MOVIE_ID, getMovieById); //ambil api dari firebase
   yield takeEvery(MOVIE_SEARCH, getMovieByQuery); //ambil api dari firebase
   yield takeLatest(REMOVE_MOVIE_SEARCH, removeQuery); //ambil api dari firebase
+  yield takeLatest(MY_REVIEW, myReview); //ambil api dari firebase
+  yield takeLatest(MY_MOVIE, myMovie); //ambil api dari firebase
 
 }

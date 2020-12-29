@@ -8,6 +8,7 @@ import {
   PUT_MOVIE_SEARCH,
   REMOVE_MOVIE_SEARCH,
   MOVIE_CATEGORY_DATA,
+
 } from "redux/actions/detailMovie-actions";
 
 // Define your state here

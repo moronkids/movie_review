@@ -24,6 +24,7 @@ const IconSaved = Styled.div`
 
 `;
 const Example = (props) => {
+  console.log(props, "dataz")
   const [activeTab, setActiveTab] = useState('1');
 
   const toggle = tab => {
@@ -91,13 +92,15 @@ const Example = (props) => {
                 <tbody>
                   <td className="">
                     <tr>Nama</tr>
+                    <tr>Nama Lengkap</tr>
                     <tr>Email</tr>
-                    <tr>Password</tr>
+                    {/* <tr>Password</tr> */}
                   </td>
                   <td className="">
-                    <tr>: Sulistyo Ardani</tr>
-                    <tr>: ardani@gmail.com</tr>
-                    <tr>: ********</tr>
+                    <tr>: {props.user.username}</tr>
+                    <tr>: {props.user.fullName}</tr>
+                    <tr>: {props.user.email}</tr>
+                    {/* <tr>: ********</tr> */}
                   </td>
                 </tbody>
               </table>

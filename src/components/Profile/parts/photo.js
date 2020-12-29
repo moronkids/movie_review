@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from "styled-components"
 import Pencil from "assets/images/pencil.svg"
-const Photo = () => {
+import {connect} from "react-redux";
+const Photo = ({photo}) => {
   const Imej = styled.div`
-    background-image: url("https://randomuser.me/api/portraits/women/40.jpg");
+    background-image: url(http://13.212.6.137:3000/${photo.profilePic});
     border-radius: 50%;
     width: 170px;
     height: 170px;
@@ -41,5 +42,9 @@ const Photo = () => {
       </>
     );
 };
-
-export default Photo;
+const mapPropsToState = (state) => {
+  return {
+    photo : state.todo.user
+  }
+}
+export default connect(mapPropsToState)(Photo);
