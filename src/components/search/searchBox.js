@@ -1,6 +1,7 @@
 import React from 'react';
 
 const SearchBox = (props) => {
+    console.log("ini props search",props);
     return (
         <div className="col col-sm-4">
             <input

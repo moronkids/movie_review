@@ -1,11 +1,7 @@
 import  defaultAxios  from "axios";
 import React, { useContext, useState, useEffect } from "react";
-// import { firebaseAuth } from "../../Provider/AuthProvider";
-// import { authMethods } from "../../firebase/AuthMethods";
-// import { db } from "../../firebase/FireBaseIndex";
 const axios = defaultAxios.create({
   baseURL: "http://13.212.6.137:3000/", //firebaseku
-  // headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
   headers: {
     // "Access-Control-Allow-Origin": "http://127.0.0.1:3000",
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
@@ -94,7 +90,7 @@ export const signUp = async (data) => {
       const bro = {
         result : "success",
         logged: true,
-        data: todos.data.token
+        data: todos.data
       }
       console.log(bro, "datax ")
       return bro;

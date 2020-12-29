@@ -57,6 +57,7 @@ export default (state = initialState, { type, payload }) => {
         ...state,
         todos: payload,
         loading: false,
+        user : payload.data.user
       };
     case PUT_SIGN_OUT:
       localStorage.removeItem("token")

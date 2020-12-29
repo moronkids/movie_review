@@ -1,5 +1,6 @@
 import React from 'react';
 import IconPlay from "assets/images/play.svg";
+import { Link } from "react-router-dom"
 
 const icon = (props) => {
   let root = ["d-flex pl-2 pl-md-0"];
@@ -16,9 +17,11 @@ const icon = (props) => {
 
     return (
       <div className={`${root}`}>
+        <Link to="/">
         <div className={`${iconProps}`}>
           <img width="20px" height="auto" className="mx-auto" src={IconPlay} />
         </div>
+        </Link>
         <span className={`${textProps}`}>MilanTV</span>
       </div>
     );
