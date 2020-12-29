@@ -4,4 +4,11 @@ export const SET_LOADING_ID = "SET_LOADING_ID";
 
 export const MOVIE_ALL = "MOVIE_ALL";
 export const MOVIE_CATEGORY = "MOVIE_CATEGORY";
+export const MOVIE_CATEGORY_DATA = "MOVIE_CATEGORY_DATA";
 export const PUT_MOVIE_CATEGORY = "PUT_MOVIE_CATEGORY";
+export const MOVIE_ID = "MOVIE_ID";
+export const PUT_MOVIE_ID = "PUT_MOVIE_ID";
+export const MOVIE_SEARCH = "MOVIE_SEARCH"
+export const PUT_MOVIE_SEARCH = "PUT_MOVIE_SEARCH";
+export const REMOVE_MOVIE_SEARCH = "REMOVE_MOVIE_SEARCH";
+

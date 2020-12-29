@@ -1,13 +1,27 @@
-import React, { useContext } from "react";
+import React, { useContext, useState,useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom"; // ini buat routing dari reactjs, must installing first
 import Homepage from "pages/homepage";
 import Detail from "pages/detail_movie/index";
 import Wrapper from "components/Layout/index";
+// import Help from ""
+import { useLocation } from "react-router-dom";
 import Profile from "components/Profile/index";
 import {connect} from "react-redux"
 import Help from "components/Button_help/help";
 import "assets/scss/styles.scss";
-const Routesx = ({ id }) => {
+
+const Routesx = ({ id , query}) => {
+  const location = useLocation();
+  console.log(location.pathname,query, "ini data")
+  const [newId, setNewId] = useState("")
+  const splitPathname = () => {
+    let loc = location.pathname.split("/");
+    console.log(loc ,"lokasi")
+    setNewId(loc[2])
+  }
+  useEffect(() => {
+    splitPathname();
+  }, [])
   const AppRoute = ({
     component: Component,
     layout: Layout,
@@ -41,7 +55,7 @@ const Routesx = ({ id }) => {
         />
         <AppRoute
           exact
-          path={"/detail_movie/"+id}
+          path={"/detail_movie/"+id }
           layout={_Guest}
           auth={Guest}
           component={Detail}
@@ -65,9 +79,10 @@ const Routesx = ({ id }) => {
   );
 };
 const mapStateToProps = (state) => {
+  console.log(state, "bosku")
   return {
     id: state.movie.id,
-
+    query: state.movie.query
   };
 }
 const mapDispatchToProps = (dispatch) => {};
