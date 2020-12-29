@@ -27,15 +27,21 @@ import {
   MOVIE_SEARCH,
   REMOVE_MOVIE_SEARCH,
   MOVIE_CATEGORY_DATA,
+  PUT_ADD_REVIEW,
+  ADD_REVIEW,
+  GET_REVIEW_MOVIE,
+  PUT_REVIEW_MOVIE
 } from "redux/actions/detailMovie-actions";
 
 // Import all api's
-import { signIn, signUp, getReview, savedMovie } from "redux/api/auth-api";
+import { signIn, signUp, savedMovie } from "redux/api/auth-api";
 import {
   getByCategory,
   getById,
   getByQuery,
   getAllCategory,
+  postReview,
+  getReview
 } from "redux/api/movie-api";
 
 // Here's the unique part, generator function*, function with asterisk(*)
@@ -61,6 +67,16 @@ function* signUpFunc({ payload }) {
   yield put({ type: SET_LOADING });
   const todos = yield call(signUp, payload);
   yield put({ type: PUT_SIGN_UP, payload: todos });
+}
+function* addReview({ payload }) {
+  yield put({ type: SET_LOADING_ID });
+  const todos = yield call(postReview, payload);
+  yield put({ type: PUT_ADD_REVIEW, payload: todos });
+}
+function* getReviewById({ payload }) {
+  yield put({ type: SET_LOADING_ID });
+  const todos = yield call(getReview, payload);
+  yield put({ type: PUT_REVIEW_MOVIE, payload: todos });
 }
 function* getIdMovie({ payload }) {
   yield put({ type: SET_LOADING_ID });
@@ -142,5 +158,7 @@ export default function* todoSaga() {
   yield takeLatest(REMOVE_MOVIE_SEARCH, removeQuery); //ambil api dari firebase
   yield takeLatest(MY_REVIEW, myReview); //ambil api dari firebase
   yield takeLatest(MY_MOVIE, myMovie); //ambil api dari firebase
+  yield takeLatest(ADD_REVIEW, addReview); //ambil api dari firebase
+  yield takeLatest(GET_REVIEW_MOVIE, getReviewById); //ambil api dari firebase
 
 }

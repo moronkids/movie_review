@@ -4,6 +4,7 @@ const axios = defaultAxios.create({
   headers: {
     // "Access-Control-Allow-Origin": "http://127.0.0.1:3000",
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+    "Authorization": `Bearer ${localStorage.getItem("token")}`,
   },
   withCredentials: false,
   crossorigin: true,
@@ -110,6 +111,60 @@ export const getByQuery = async (data) => {
   let response = {};
   const todos = await axios
     .post("/movie/search/" + page, { query: data.query })
+    .catch(function (error) {
+      if (error.response.status !== 200) {
+        response = {
+          result: "failed",
+          data: null,
+          query: data.query,
+        };
+      }
+    });
+  if (response.result === "failed") {
+    return response;
+  } else {
+    console.log(response, todos, "astajim");
+    response = {
+      result: "success",
+      data: [...todos.data.message.result],
+      query: data.query,
+    };
+    return response;
+  }
+};
+export const postReview = async (data) => {
+  console.log("masuk get api movie cari", data);
+  let id = data.id
+  let response = {};
+  const todos = await axios
+    .post("/review/addReview/" + id, {review: data.review, rating: data.rating} )
+    .catch(function (error) {
+      if (error.response.status !== 200) {
+        response = {
+          result: "failed",
+          data: null,
+          query: data.query,
+        };
+      }
+    });
+  if (response.result === "failed") {
+    return response;
+  } else {
+    console.log(response, todos, "astajim");
+    response = {
+      result: "success",
+      data: [...todos.data.message],
+      query: data.query,
+    };
+    return response;
+  }
+};
+export const getReview = async (data) => {
+  console.log("reviewwww", data);
+  let id = data;
+  let response = {};
+  const todos = await axios
+    .get("/review/getReview/" + id+"/1")
     .catch(function (error) {
       if (error.response.status !== 200) {
         response = {

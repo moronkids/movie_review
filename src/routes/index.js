@@ -85,7 +85,7 @@ const Routesx = ({ id , query}) => {
         />
         <AppRoute
           exact
-          path={"/*"}
+          // path={"/*"}
           layout={_Guest}
           auth={Guest}
           component={NotFound}

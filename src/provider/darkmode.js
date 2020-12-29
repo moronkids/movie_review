@@ -8,6 +8,7 @@ const Darkmode = (props) => {
   const [activeTab, setActiveTab] = useState("1");
   const [activeCategory, setActiveCategory] = useState("All")
   const [count, setCount] = useState(5);
+  const [review, setReview] = useState({id: null,review:null, rating:null})
   // const togglex = (tab) => {
   //   console.log(tab,"initab")
   //   if (activeTab !== tab) setActiveTab(tab);
@@ -70,6 +71,8 @@ const Darkmode = (props) => {
         handleCategory,
         count,
         setCount,
+        review,
+        setReview
       }}
     >
       {props.children}

@@ -8,7 +8,10 @@ import {
   PUT_MOVIE_SEARCH,
   REMOVE_MOVIE_SEARCH,
   MOVIE_CATEGORY_DATA,
-
+  ADD_REVIEW,
+  PUT_ADD_REVIEW,
+  GET_REVIEW_MOVIE,
+  PUT_REVIEW_MOVIE,
 } from "redux/actions/detailMovie-actions";
 
 // Define your state here
@@ -78,6 +81,24 @@ export default (state = initialState, { type, payload }) => {
         loading: false,
         data: payload,
         query: payload.query,
+      };
+    case PUT_ADD_REVIEW:
+      // const datax = payload.data
+      return {
+        ...state, //spread operator copy all data fromn inital state
+        // data: payload,
+        loading: false,
+        review: payload.data,
+
+      };
+    case PUT_REVIEW_MOVIE:
+      // const datax = payload.data
+      return {
+        ...state, //spread operator copy all data fromn inital state
+        // data: payload,
+        loading: false,
+        comment: payload.data,
+
       };
     case REMOVE_MOVIE_SEARCH:
       return {
