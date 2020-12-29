@@ -20,6 +20,8 @@ const ModalExample = ({ todos, loading, signUpFunc, falseLogged, logged }) => {
     toggleModalSignUp,
     setModalSignUp,
     toggleAll,
+    count,
+    setCount
   } = useContext(darkMode);
 
   const [username, setUsername] = useState("");
@@ -28,7 +30,7 @@ const ModalExample = ({ todos, loading, signUpFunc, falseLogged, logged }) => {
   const [password, setPassword] = useState("");
   const [password_, setPassword_] = useState("");
   const [validationx, setValidationx] = useState(false);
-  const [count, setCount] = useState(5);
+
   const validateFormFields = () => {
     console.log(validationx, "tes bro")
     if (validationx) {
@@ -44,18 +46,20 @@ const ModalExample = ({ todos, loading, signUpFunc, falseLogged, logged }) => {
 
     }
   };
-
+  console.log(count,todos.todos.logged, "diawal");
   useEffect(() => {
+    console.log(count, "hitungcount")
     if (todos.todos.logged) {
       // toggleModalSignUp(false);
       count > 0 && setTimeout(() => setCount(count - 1), 1000);
 
     }
     if(count === 0) {
+      console.log("masuksini ga?")
       toggleAll();
       falseLogged();
     }
-  }, [count]);
+  }, [logged,count]);
 
   return (
     <div>

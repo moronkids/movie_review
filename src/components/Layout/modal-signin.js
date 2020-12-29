@@ -35,7 +35,9 @@ const ModalExample = ({
     modalSignUp,
     toggleModalSignUp,
     setModalSignUp,
-    toggleAll
+    toggleAll,
+    count,
+    setCount
   } = useContext(darkMode);
   // console.log(loading,todos.todos.length,  "inid loading");
   console.log(modal, "ini modal login")
@@ -53,6 +55,7 @@ const ModalExample = ({
       };
       console.log(emailx, passwordx, "click");
       signInFunc(data);
+      setCount(1)
     }
     // return email.length > 0 && password.length > 0;
   }
@@ -70,11 +73,14 @@ const ModalExample = ({
   };
   console.log(emailx, passwordx, "cek aja");
   useEffect(() => {
-    if (todos.todos.logged) {
-      falseLogged();
-      // toggleAll()
+    if (count === 0) {
+    console.log("apa masuk sini?");
+    falseLogged();
+    toggleAll();
+
+    // toggleModal()
     }
-  }, [falseLogged, loading, todos.todos.logged, toggleModal]);
+  }, [count]);
 
   return (
     <div>

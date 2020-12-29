@@ -7,7 +7,7 @@ const Darkmode = (props) => {
   const [modalSignUp, setModalSignUp] = useState(false);
   const [activeTab, setActiveTab] = useState("1");
   const [activeCategory, setActiveCategory] = useState("All")
-
+  const [count, setCount] = useState(5);
   // const togglex = (tab) => {
   //   console.log(tab,"initab")
   //   if (activeTab !== tab) setActiveTab(tab);
@@ -25,6 +25,7 @@ const Darkmode = (props) => {
   };
   const toggleModalSignUp = () => {
     toggleAll();
+    setCount(5)
     setModalSignUp(!modalSignUp);
   };
   const toggleAll = () => {
@@ -67,6 +68,8 @@ const Darkmode = (props) => {
         activeCategory,
         setActiveCategory,
         handleCategory,
+        count,
+        setCount,
       }}
     >
       {props.children}

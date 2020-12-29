@@ -47,7 +47,7 @@ export const getByCategory = async (data) => {
   } else {
     response = {
       result: "success",
-      data: [...todos.data.message],
+      data: [...todos.data.message.result],
     };
     console.log(response, todos, "cek response movie");
     return response;
