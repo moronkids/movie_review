@@ -2,11 +2,11 @@ import React, {useState} from "react";
 import { Character } from "data_dummy/character";
 
 const CharacterCard = (props) => {
-  console.log( props.passingData, props, "charac" );
+  console.log( props, "charac" );
   // const [data, setData]= useState(props.ada.star)
   return (
     <div className="d-flex flex-wrap mx-auto">
-        {/* {data.map((val) => {
+        {props.dummy.data[0].star.map((val) => {
           //map, foreach, while, do while, for
           return (
             <>
@@ -19,7 +19,7 @@ const CharacterCard = (props) => {
               </div>
             </>
           );
-        })} */}
+        })}
     </div>
   );
 };
