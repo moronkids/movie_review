@@ -34,7 +34,7 @@ import {
 } from "redux/actions/detailMovie-actions";
 
 // Import all api's
-import { signIn, signUp, savedMovie } from "redux/api/auth-api";
+import { signIn, signUp, savedMovie, getMyReview } from "redux/api/auth-api";
 import {
   getByCategory,
   getById,
@@ -53,15 +53,15 @@ function* signInFunc({payload}) {
   yield put({ type: PUT_SIGN_IN, payload: todos });
 
 }
-function* myReview() {
+function* myReview({payload}) {
   yield put({ type: SET_LOADING });
-  yield call(getReview);
-  yield put({ type: PUT_MY_REVIEW});
+  const todos = yield call(getMyReview, payload );
+  yield put({ type: PUT_MY_REVIEW, payload: todos});
 }
 function* myMovie() {
   yield put({ type: SET_LOADING });
-  yield call(savedMovie);
-  yield put({ type: PUT_SAVED_MOVIE});
+  const todos = yield call(savedMovie);
+  yield put({ type: PUT_SAVED_MOVIE, payload: todos});
 }
 function* signUpFunc({ payload }) {
   yield put({ type: SET_LOADING });

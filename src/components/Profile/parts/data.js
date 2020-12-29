@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
 import Styled from "styled-components";
+import { Media } from "reactstrap";
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import StarRatingComponent from "react-star-rating-component";
 const IconProfile = Styled.div`
     background-image: url("data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjZWI1MDdmIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSItMTgwIDI4NS41IDI1MC43IDIyMi41IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0xODAgMjg1LjUgMjUwLjcgMjIyLjU7IiB4bWw6c3BhY2U9InByZXNlcnZlIj48c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtzdHJva2U6I2ViNTA3ZjtzdHJva2Utd2lkdGg6OTtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9Cgkuc3Qxe3N0cm9rZTojZWI1MDdmO3N0cm9rZS13aWR0aDo5O3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1taXRlcmxpbWl0OjEwO30KPC9zdHlsZT48cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTkuMywzNjAuMWMwLDI1LTIwLjMsNDUuMy00NS4zLDQ1LjNzLTQ1LjQtMjAuMy00NS40LTQ1LjNzMjAuMy00NS4zLDQ1LjMtNDUuM1MtOS4zLDMzNS4xLTkuMywzNjAuMXoiPjwvcGF0aD48cGF0aCBjbGFzcz0ic3QxIiBkPSJNMjkuNCw0NzkuOGgtMTY4LjFjMCwwLTguNC0zMy43LDE4LjctNDcuOGM1LjgtMywxMi4zLTQuMiwxOC44LTQuMmg5My4xYzYuNSwwLDEzLDEuMiwxOC44LDQuMiAgQzM3LjgsNDQ2LjEsMjkuNCw0NzkuOCwyOS40LDQ3OS44eiI+PC9wYXRoPjwvc3ZnPg==");
        width: 30px;
@@ -85,22 +88,19 @@ const Example = (props) => {
         <TabPane tabId="1">
           <Row>
             <Col sm="6" className="mx-auto">
-              <table
-                className="table"
-                style={{color: "inherit"}}
-              >
+              <table className="table" style={{ color: "inherit" }}>
                 <tbody>
                   <td className="">
                     <tr>Nama</tr>
                     <tr>Nama Lengkap</tr>
                     <tr>Email</tr>
-                    {/* <tr>Password</tr> */}
+
                   </td>
                   <td className="">
                     <tr>: {props.user.username}</tr>
                     <tr>: {props.user.fullName}</tr>
                     <tr>: {props.user.email}</tr>
-                    {/* <tr>: ********</tr> */}
+
                   </td>
                 </tbody>
               </table>
@@ -110,7 +110,50 @@ const Example = (props) => {
         <TabPane tabId="2">
           <Row>
             <Col sm="6" className="mx-auto">
-            "tes"
+              <div className="boxWhite">
+                {props.review !== null
+                  ? props.review.map((item) => {
+                      // const {
+                      //   id,
+                      //   firstName,
+                      //   lastName,
+                      //   location,
+                      //   thumbnail,
+                      // } = item;
+                      return (
+                        <div  className="comment-review">
+                          <Media className="mt-1">
+                            <Media left middle href="#">
+                              <img
+                                className="favourite-image"
+                                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F0%2F04%2FElon_Musk_and_Hans_Koenigsmann_at_the_SpaceX_CRS-8_post-launch_press_conference_%252826223624532%2529_%2528cropped%2529.jpg&f=1&nofb=1"
+                                alt="Generic placeholder image"
+                              />
+                            </Media>
+                            <br />
+                            <Media className="teks-body" body>
+                              <div style={{ fontSize: "30px" }}>
+                                <StarRatingComponent
+                                  name="rate1"
+                                  className="teks-body"
+                                  starCount={5}
+                                  value={item.rating}
+                                />
+                              </div>
+                              <Media heading>
+
+                                {item.User}
+                              </Media>
+                              {item.review}
+                            </Media>
+                          </Media>
+                          <br />
+
+                        </div>
+                      );
+                    })
+                  : null}
+              </div>
             </Col>
           </Row>
         </TabPane>

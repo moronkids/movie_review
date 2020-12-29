@@ -21,7 +21,9 @@ import {
 const initialState = {
   loading: false,
   todos: {},
+  review : [],
   user: {},
+  watchlist : []
   // logged: false
   // modal: false
 };
@@ -64,11 +66,10 @@ export default (state = initialState, { type, payload }) => {
         loading: false,
       };
     case PUT_MY_REVIEW:
-
       return {
         ...state,
-        todos: {},
         loading: false,
+        review: payload.data
       };
     case PUT_SAVED_MOVIE:
 
@@ -76,6 +77,7 @@ export default (state = initialState, { type, payload }) => {
         ...state,
         todos: {},
         loading: false,
+        watchlist: payload.data
       };
 
     // case GET_TODOS:

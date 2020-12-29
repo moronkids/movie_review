@@ -100,7 +100,7 @@ export const signUp = async (data) => {
       return bro;
     }
 };
-export const getReview = async () => {
+export const getMyReview = async () => {
   console.log("my reviews")
   let datax ={};
     const todos = await axios
@@ -120,9 +120,12 @@ export const getReview = async () => {
       return datax
     }
     else {
-
-      console.log(todos, "datax ")
-      // return bro;
+   const bro = {
+     result: "success",
+     data: [...todos.data.message.result],
+   };
+   console.log(bro, "datax ");
+   return bro;
     }
 };
 export const savedMovie = async () => {
@@ -143,9 +146,12 @@ export const savedMovie = async () => {
       return datax
     }
     else {
-
-      console.log(todos, "datax ")
-      // return bro;
+   const bro = {
+     result: "success",
+     data: [...todos.data.message[0].watchList],
+   };
+   console.log(bro, "datax ");
+   return bro;
     }
 };
 

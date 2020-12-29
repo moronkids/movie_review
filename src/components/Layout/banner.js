@@ -35,7 +35,9 @@ const Banner = (props) => {
             <a target="_blank" href={props.dummy.data[0].Trailer}>
               <ButtonBanner colorButton="red">Watch Trailer</ButtonBanner>
             </a>
+            {/* <a href="" className="" onClick={}> */}
             <ButtonBanner colorButton="white">Add to Watchlist</ButtonBanner>
+            {/* </a> */}
           </div>
         </div>
         <div className="bg-dark cover transparency-dark position-absolute"></div>
