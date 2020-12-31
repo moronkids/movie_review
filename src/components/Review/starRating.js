@@ -28,7 +28,8 @@ const Rating = (props) => {
     setReview({...review, rating : e});
   };
   return (
-    <div className="flex-container-rating">
+    <>
+      {"token" in localStorage ? <div className="flex-container-rating">
       <div className="flex-rating">
         <img
           className="favourite-image"
@@ -48,7 +49,8 @@ const Rating = (props) => {
           />
         </div>
       </div>
-    </div>
+    </div>: null}
+    </>
   );
 };
 

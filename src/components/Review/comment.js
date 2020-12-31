@@ -53,19 +53,23 @@ const CreateComment = ({ props, id, addReview, getReviewById }) => {
   };
 
   return (
-    <div className="teks-area reviews-form">
-      <form className="">
-        <input
-          name="review"
-          onChange={handleChange}
-          value={review.review}
-          placeholder="add a review..."
-          rows="3"
-          oneKeyPress={handleKeypress}
-        />
-        <button onClick={submitNote}>Add</button>
-      </form>
-    </div>
+    <>
+      {"token" in localStorage ? (
+        <div className="teks-area reviews-form">
+          <form className="">
+            <input
+              name="review"
+              onChange={handleChange}
+              value={review.review}
+              placeholder="add a review..."
+              rows="3"
+              oneKeyPress={handleKeypress}
+            />
+            <button onClick={submitNote}>Add</button>
+          </form>
+        </div>
+      ) : null}
+    </>
   );
 };
 const mapStateToProps = (state, props) => {

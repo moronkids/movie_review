@@ -20,24 +20,26 @@ const Category = ({props, categoryMap}) => {
   const { path, setPath, setActiveTab, activeTab, togglex, activeCategory, setActiveCategory, handleCategory } = useContext(darkMode);
   console.log(props, path, "tes");
   const [toggle, setToggle] = useState(0);
-  const [location, setLocation] = useState(props.location);
+  const [location, setLocation] = useState(0);
   const addActive = (e) => {
     setToggle(e);
     if (e === 0) {
-      setLocation("/overview");
+      setLocation(0);
       setPath("overview");
     }
     if (e === 1) {
-      setLocation("/characters");
+      setLocation(1);
       setPath("characters");
     }
     if (e === 2) {
-      setLocation("/review");
+      setLocation(2);
       setPath("reviews");
     }
     console.log("masuk", props);
   };
+  useEffect(() => {
 
+  }, [setPath]);
   const classn = "list-category my-auto";
   let cat;
   if (props.detect === "homepage") {
@@ -68,11 +70,12 @@ const Category = ({props, categoryMap}) => {
   } else {
     cat = props.valueProps.map((val, i) => {
       const mix = `${val.spacing} ${classn}`;
+      console.log(location, "lokass")
       return (
         <span
           id={i}
           onClick={(e) => addActive(i)}
-          className={mix + (location === val.page ? " active" : "")}
+          className={mix + (location === i ? " active" : "")}
         >
           <span className="align-middle">{val.name}</span>
         </span>

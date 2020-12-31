@@ -15,6 +15,7 @@ const Darkmode = (props) => {
   // };
   useEffect(() => {
     setActiveCategory("")
+    // setPath("overview")
   }, [activeCategory])
   const handleCategory = (e) => {
     setActiveCategory(e);

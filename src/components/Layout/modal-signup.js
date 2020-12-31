@@ -157,7 +157,7 @@ const ModalExample = ({ todos, loading, signUpFunc, falseLogged, logged }) => {
           </div>
           <div class="form__group field">
             <input
-              type="input"
+              type="password"
               class="form__field"
               placeholder="Name"
               name="password"
@@ -181,7 +181,7 @@ const ModalExample = ({ todos, loading, signUpFunc, falseLogged, logged }) => {
           </div>
           <div class="form__group field">
             <input
-              type="input"
+              type="password"
               class="form__field"
               placeholder="Name"
               name="password"

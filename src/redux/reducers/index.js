@@ -20,7 +20,7 @@ const persistConfig = {
 const moviePersistConfig = {
   key: "movie",
   storage: storage,
-  blacklist: ["query"],
+  blacklist: ["query", "category", "mywatchlist", "comment", "review"],
 };
 const rootReducer = combineReducers({
   todo: todo,

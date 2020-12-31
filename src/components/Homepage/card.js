@@ -70,13 +70,13 @@ const Cardx = ({ getIdMovie, getMovieByCategory, query,data, loading }) => {
   const [pell, setPell] = useState("1");
   const [delay, setDelay] = useState(2000);
   const [result, setResult] = useState("");
-  const intoDetail = (e) => {
+  const intoDetail = async (e) => {
     console.log(e, "ini id");
-    getIdMovie(e);
+    await getIdMovie(e);
   };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   console.log(query,"just once")
-  useEffect(async () => {
+  useEffect( () => {
     if (query === "" && activeCategory === "All") {
       getMovieByCategory({
         genre: "all",

@@ -1,12 +1,12 @@
-import React, {useContext, useEffect} from 'react';
-import Character from 'pages/detail_movie/character'
-import Overview from 'pages/detail_movie/overview'
-import Review from 'pages/detail_movie/review'
+import React, { useContext, useEffect } from "react";
+import Character from "pages/detail_movie/character";
+import Overview from "pages/detail_movie/overview";
+import Review from "pages/detail_movie/review";
 import Banner from "components/Layout/banner";
 import Category from "components/Homepage/category";
 import { darkMode } from "provider/darkmode";
 import { Overviewx } from "data_dummy/overview";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import Card from "components/Homepage/card";
 import Page from "components/Homepage/page_nation";
 import { MOVIE_ID, GET_REVIEW_MOVIE } from "redux/actions/detailMovie-actions";
@@ -19,7 +19,7 @@ const Index = ({
   query,
   user,
   getReviewById,
-  comment
+  comment,
 }) => {
   console.log(props, data, "bedah");
   const { path, setPath } = useContext(darkMode);
@@ -47,7 +47,24 @@ const Index = ({
       getMovieById(id);
       getReviewById(id);
     }
-  }, [query]);
+    setPath("overview")
+  }, [getMovieById, getReviewById, id, query]);
+  let datax;
+  console.log(path, "sebelum if")
+  if (path === "overview") {
+    datax = <Overview dummy={data} />;
+  } else if (path === "reviews") {
+    datax = (
+      <Review
+        dummy={data}
+        dummy2={user}
+        comment={comment}
+        loading={loading}
+      ></Review>
+    );
+  } else {
+    datax = <Character dummy={data}></Character>;
+  }
   return (
     <>
       {query !== "" ? (
@@ -62,8 +79,9 @@ const Index = ({
             // location={props.location.pathname}
             valueProps={valueCategory}
           />
-          {path === "overview" ? <Overview dummy={data} /> : null}
-          {path === "characters" ? <Character dummy={data}></Character> : null}
+          {console.log(path, "tesaja")}
+          {datax}
+          {/* {path === "characters" ? <Character dummy={data}></Character> : null}
           {path === "reviews" ? (
             <Review
               dummy={data}
@@ -71,28 +89,28 @@ const Index = ({
               comment={comment}
               loading={loading}
             ></Review>
-          ) : null}
+          ) : null} */}
         </>
       )}
     </>
   );
 };
 const mapStateToProps = (state) => {
-  console.log("state", state)
+  console.log("state", state);
   return {
-    id : state.movie.id,
-    loading : state.movie.loading,
+    id: state.movie.id,
+    loading: state.movie.loading,
     data: state.movie.data,
     user: state.todo.user,
     comment: state.movie.comment,
     // searchResult : state.movie.data,
-    query: state.movie.query
-  }
-}
+    query: state.movie.query,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
   // getIdMovie: (data) => dispatch({ type: DETAIL_MOVIE, payload: data }),
   getMovieById: (data) => dispatch({ type: MOVIE_ID, payload: data }),
-  getReviewById: (id) => dispatch({ type: GET_REVIEW_MOVIE, payload: id })
-})
+  getReviewById: (id) => dispatch({ type: GET_REVIEW_MOVIE, payload: id }),
+});
 export default connect(mapStateToProps, mapDispatchToProps)(Index);

@@ -36,7 +36,11 @@ const Banner = (props) => {
               <ButtonBanner colorButton="red">Watch Trailer</ButtonBanner>
             </a>
             {/* <a href="" className="" onClick={}> */}
-            <ButtonBanner colorButton="white">Add to Watchlist</ButtonBanner>
+            {"token" in localStorage ? (
+              <ButtonBanner colorButton="white">Add to Watchlist</ButtonBanner>
+            ) : (
+              <ButtonBanner colorButton="white">Add to Watchlist</ButtonBanner>
+            )}
             {/* </a> */}
           </div>
         </div>
